@@ -8,4 +8,12 @@ export const StyledMenuComponent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  .buttons {
+    display: flex;
+    
+    .br {
+      width: 36px;
+    }
+  }
 `
