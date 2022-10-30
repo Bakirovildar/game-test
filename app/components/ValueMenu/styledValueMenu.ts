@@ -1,6 +1,18 @@
 import styled from "@emotion/styled";
 
 export const StyledValueMenu: any = styled.div`
+  .numbers {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 5px 3px;
+    font-family: 'Calibri';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #4F4B61;
+  }
   
   .countBox {
     background: #FFD748;

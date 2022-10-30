@@ -5,6 +5,12 @@ export function ValueMenu() {
 
     return (
         <StyledValueMenu widthCount={arr}>
+            <div className='numbers'>
+                {
+                    arr.map((i): any => <div key={i}>{i}</div>)
+                }
+            </div>
+
             <div className='countBox'>
                 <div className='circle'/>
             </div>
