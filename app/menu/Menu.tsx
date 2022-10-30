@@ -1,7 +1,10 @@
-const Menu = () => {
+import {StyledMenu} from "./styledMenu";
+import {Count} from "./count/count";
+
+export function Menu() {
     return (
-        <div>dfd</div>
+        <StyledMenu>
+            <Count title='Кол-во предметов' />
+        </StyledMenu>
     )
 }
-
-export default Menu
