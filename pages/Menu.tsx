@@ -1,9 +1,9 @@
-import {MenuComponent} from "../components/menuComponent/MenuComponent";
-import {StyledMenuComponent} from "./styledMenuComponent";
-import {Button} from "../components/button/Button";
-import {ButtonStart} from "../components/button/ButtonStart";
+import {MenuComponent} from "../app/components/menuComponent/MenuComponent";
+import {StyledMenuComponent} from "../styles/styledMenuComponent";
+import {Button} from "../app/components/button/Button";
+import {ButtonStart} from "../app/components/button/ButtonStart";
 
-export function Menu() {
+const Menu = () => {
     const arrSubject = [1, 2, 3, 4, 5]
     const arrValue = ['A', 9, 19, 50, 99, 999]
 
@@ -24,3 +24,5 @@ export function Menu() {
         </StyledMenuComponent>
     )
 }
+
+export default Menu

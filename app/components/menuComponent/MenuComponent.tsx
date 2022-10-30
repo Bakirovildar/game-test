@@ -1,4 +1,4 @@
-import {StyledMenuComponent} from "../../menu/styledMenuComponent";
+import {StyledMenuComponent} from "../../../styles/styledMenuComponent";
 import {Count} from "./count/count";
 import {ValueMenu} from "./ValueMenu/ValueMenu";
 
