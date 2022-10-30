@@ -1,6 +1,7 @@
 import {MenuComponent} from "../components/menuComponent/MenuComponent";
-import { StyledMenuComponent } from "./styledMenuComponent";
+import {StyledMenuComponent} from "./styledMenuComponent";
 import {Button} from "../components/button/Button";
+import {ButtonStart} from "../components/button/ButtonStart";
 
 export function Menu() {
     const arrSubject = [1, 2, 3, 4, 5]
@@ -8,13 +9,17 @@ export function Menu() {
 
     return (
         <StyledMenuComponent>
-            <MenuComponent title='Кол-во предметов' value={arrSubject}/>
-            <MenuComponent title='Значения' value={arrValue}/>
+            <div className='module'>
+                <MenuComponent title='Кол-во предметов' value={arrSubject}/>
+                <MenuComponent title='Значения' value={arrValue}/>
 
-            <div className='buttons'>
-                <Button title='По возрастанию'/>
-                <div className='br'/>
-                <Button title='По убыванию'/>
+                <div className='buttons'>
+                    <Button title='По возрастанию'/>
+                    <div className='br'/>
+                    <Button title='По убыванию'/>
+                </div>
+
+                <ButtonStart title='Играть'/>
             </div>
         </StyledMenuComponent>
     )
