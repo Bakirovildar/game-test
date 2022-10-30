@@ -1,11 +1,10 @@
 import {StyledGamePages} from "../styles/styledGamePage"
-import {BgMoney} from "../app/components/backgrounds/money/BgMoney";
-import {BgNewYear} from "../app/components/backgrounds/new year/BgNewYear";
+import {BgFlowers} from "../app/components/backgrounds/flowers/BgFlowers";
 
 const Game = () => {
     return (
         <StyledGamePages bgColor={'#DEC6AA'}>
-            <BgNewYear/>
+            <BgFlowers/>
         </StyledGamePages>
     )
 }

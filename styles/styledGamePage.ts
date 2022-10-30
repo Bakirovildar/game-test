@@ -23,3 +23,15 @@ export const StyledNewYear = styled.div`
     justify-content: space-between;
   }
 `
+
+export const StyledFlowers = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+
+export const StyledBgFlowersContainer = styled.div`
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+`
