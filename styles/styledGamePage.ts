@@ -6,8 +6,9 @@ export const StyledGamePages: any = styled.div`
   background: ${({bgColor} : any) => bgColor};
 `
 
-export const StyledBg = styled.div`
+export const StyledBg: any = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  height: 100%;
+  align-items: ${({isTop}: any) => isTop ? 'flex-start' : 'flex-end'};
 `
