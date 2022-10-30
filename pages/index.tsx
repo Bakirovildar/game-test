@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import {Menu} from "../app/menu/Menu";
 import styled from "@emotion/styled";
+import {Menu} from "../app/menu/Menu";
 
 const Container = styled.div`
   width: 100%;

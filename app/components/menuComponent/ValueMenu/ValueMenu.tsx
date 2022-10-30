@@ -1,13 +1,16 @@
 import { StyledValueMenu } from "./styledValueMenu";
 
-export function ValueMenu() {
-    const arr = [0,1,2,3]
+interface IValueMenu {
+    value: Array<any>
+}
+
+export function ValueMenu({value}: IValueMenu) {
 
     return (
-        <StyledValueMenu widthCount={arr}>
+        <StyledValueMenu widthCount={value}>
             <div className='numbers'>
                 {
-                    arr.map((i): any => <div key={i}>{i}</div>)
+                    value.map((i): any => <div key={i}>{i}</div>)
                 }
             </div>
 

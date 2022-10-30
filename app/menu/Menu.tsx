@@ -1,12 +1,14 @@
-import {StyledMenu} from "./styledMenu";
-import {Count} from "./count/count";
-import {ValueMenu} from "../components/ValueMenu/ValueMenu";
+import {MenuComponent} from "../components/menuComponent/MenuComponent";
+import { StyledMenuComponent } from "./styledMenuComponent";
 
 export function Menu() {
+    const arrSubject = [1, 2, 3, 4, 5]
+    const arrValue = ['A', 9, 19, 50, 99, 999]
+
     return (
-        <StyledMenu>
-            <Count title='Кол-во предметов' />
-            <ValueMenu></ValueMenu>
-        </StyledMenu>
+        <StyledMenuComponent>
+            <MenuComponent title='Кол-во предметов' value={arrSubject}/>
+            <MenuComponent title='Значения' value={arrValue}/>
+        </StyledMenuComponent>
     )
 }
