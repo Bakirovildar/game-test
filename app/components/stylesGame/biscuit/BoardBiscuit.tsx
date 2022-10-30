@@ -1,26 +1,16 @@
-import styled from "@emotion/styled";
-import {CircleBoard} from "../general/CircleBoard";
-
-const StyledBoardBiscuit = styled.div`
-  position: fixed;
-  bottom: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`
-const StyledBoardContainer = styled.div`
-  position: relative;
-  .board-circle {
-    
-  }
-`
+import { StyledBoardBiscuit } from "../../../../styles/styledGamePage"
 
 export const BoardBiscuit = () => {
     return (
-        <StyledBoardContainer>
-            <div className='board-circle'/>
-
             <StyledBoardBiscuit>
+                <div className='board-container'>
+                    <div className='board'>
+                        <div className='circle'/>
+                        <div className='circle'/>
+                        <div className='circle'/>
+                    </div>
+
+                </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="990" height="323" viewBox="0 0 990 323" fill="none">
                     <g filter="url(#filter0_d_1_11744)">
                         <g filter="url(#filter1_d_1_11744)">
@@ -714,6 +704,5 @@ export const BoardBiscuit = () => {
                     </defs>
                 </svg>
             </StyledBoardBiscuit>
-        </StyledBoardContainer>
     )
 }
