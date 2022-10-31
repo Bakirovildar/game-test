@@ -10,8 +10,8 @@ export const DragIcon = () => {
                 {
                     numbers.map((icon:number, index: number) => (
                         index % 2 !== 0
-                            ? <div key={index} className='dragIcon'><DragIconSvg iconsName='BiscuitIcons' index={index}/></div>
-                            : <div key={index} className='dragIcon' style={{marginTop: '90px'}}><DragIconSvg iconsName='BiscuitIcons' index={index} /></div>
+                            ? <div key={index} className='dragIcon'><DragIconSvg iconsName='BiscuitIcons' /></div>
+                            : <div key={index} className='dragIcon' style={{marginTop: '90px'}}><DragIconSvg iconsName='BiscuitIcons' /></div>
                     ))
                 }
             </div>

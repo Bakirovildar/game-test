@@ -1,17 +1,16 @@
-import {BiscuitIcons} from "./biscuitIcons/BiscuitsIcons";
+import {RandomIcon} from "./biscuitIcons/RandomIcon";
 
 interface IDragIconSvg {
     iconsName: string
-    index: number
 }
 
-export const DragIconSvg = ({iconsName, index}: IDragIconSvg) => {
+export const DragIconSvg = ({iconsName}: IDragIconSvg) => {
 
     return (
-        <div>
+        <>
             {
-                iconsName === 'BiscuitIcons' ? <BiscuitIcons index={index}/> : ''
+                <RandomIcon iconName={iconsName}/>
             }
-        </div>
+        </>
     )
 }
