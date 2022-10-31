@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Menu from "./Menu";
+import MainLayout from "../app/components/MainLayout";
 
 const Container = styled.div`
   width: 100%;
@@ -13,7 +14,9 @@ export default function Home() {
     return (
         <div>
             <Container>
-                <Menu/>
+                <MainLayout>
+                    <Menu/>
+                </MainLayout>
             </Container>
         </div>
     )

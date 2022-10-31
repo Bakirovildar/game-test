@@ -38,7 +38,6 @@ const Menu = () => {
         if (name === 'value') {
             setValueIcon(value)
         }
-        console.log(countIcon, valueIcon)
     }
 
     const handleClickDesc = (title: string) => {
@@ -50,15 +49,17 @@ const Menu = () => {
             setIsActiveDesc(true)
             setIsActiveAsc(false)
         }
-
-        console.log(isActiveAsc)
     }
+
     const clickPlayHandle = () => {
-        setValueSettings({
+        const settingsValue: any = {
             count: countIcon,
             value: valueIcon,
-            isAscending: isActiveAsc
-        })
+            isAscending: isActiveAsc,
+            numberTheme: Math.floor(Math.random() * 4)
+        }
+
+        localStorage.setItem('settingValue', JSON.stringify(settingsValue))
     }
 
     return (
