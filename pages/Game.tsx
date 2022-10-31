@@ -8,6 +8,7 @@ import {BgNewYear} from "../app/components/stylesGame/new year/BgNewYear";
 import {BgMoney} from "../app/components/stylesGame/money/BgMoney";
 import {BgBiscuit} from "../app/components/stylesGame/biscuit/BgBiscuit";
 import {BoardFlowers} from "../app/components/stylesGame/flowers/BoardFlowers";
+import {BoardNewYear} from "../app/components/stylesGame/new year/BoardNewYear";
 
 const Game = () => {
     const [settingsValue, setSettingsValue]:any = useState({})
@@ -24,7 +25,7 @@ const Game = () => {
                     settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 1 ? <BgNewYear/> : ''
+                    settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 2 ? <><BgMoney/></> : ''
