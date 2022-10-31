@@ -40,9 +40,9 @@ const randomNumbers = (maxNum: number, value: number)  => {
     const min = 0; // минимальное  число
     // цикл, пока не получим массив с уникальными числами
     while(i<countNum){
-        let chislo: any = Math.floor((Math.random()*max)+min); // генерим случайное число
-        if(find(outArray, chislo) ===0){ // Проверяем уникальность числа.
-            outArray[i] = chislo; // если уникальное, то заисываем его в массив
+        let number: any = Math.floor((Math.random()*max)+min); // генерим случайное число
+        if(find(outArray, number) ===0){ // Проверяем уникальность числа.
+            outArray[i] = number; // если уникальное, то заисываем его в массив
             i++;
         }
     }

@@ -122,14 +122,15 @@ export const StyledDragIcon = styled.div`
       
       span {
         position: absolute;
-        left: 45%;
-        top: 54%;
+        width: 100%;
+        height: 100%;
         font-family: 'Calibri';
         font-style: normal;
         font-weight: 400;
         font-size: 56px;
         line-height: 68px;
         display: flex;
+        justify-content: center;
         align-items: center;
         letter-spacing: 2px;
         color: #FFFFFF;
