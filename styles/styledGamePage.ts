@@ -90,3 +90,34 @@ export const StyledBoardBiscuit = styled.div`
     }
   }
 `
+
+export const StyledDragIcon = styled.div`
+  position: absolute;
+  bottom: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @media all and (min-width: 1000px) {
+    .dragIcon {
+      height: 140px;
+      width: 140px;
+    }
+  }
+
+  @media all and (min-width: 0) and (max-width: 1000px) {
+    .dragIcon {
+      height: 14vw;
+      width: 14vw;
+    }
+  }
+
+  .dragIconContent {
+    display: flex;
+    justify-content: space-between;
+    
+    .dragIcon {
+      margin: 0 2px;
+    }
+  }
+`
