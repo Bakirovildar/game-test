@@ -148,6 +148,8 @@ export const StyledDragIcon = styled.div`
     .dragIcon {
       margin: 0 2px;
       position: relative;
+      cursor: pointer;
+      
       
       span {
         position: absolute;

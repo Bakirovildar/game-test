@@ -1,7 +1,6 @@
 import {StyledBoardBiscuit} from "../../../../styles/styledGamePage"
 import {useEffect, useState} from "react";
 import {FlowersIcon1} from "../../icons/randomIcons/flowersIcon/FlowersIcon1";
-import {NewYearIcon1} from "../../icons/randomIcons/newYearIcons/NewYearIcon1";
 import {Descending} from "../../asending/Descending";
 import {Asendings} from "../../asending/Asending";
 
@@ -34,7 +33,7 @@ export const BoardFlowers = ({isAscending, countIcon}: IBoard) => {
                     }
 
                     {
-                        icons.map(() => <div className='circle'/>)
+                        icons.map((icon: any) => <div className='circle' key={icon}/>)
                     }
                     {
                         !isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>

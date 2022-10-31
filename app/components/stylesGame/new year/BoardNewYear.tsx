@@ -29,7 +29,7 @@ export const BoardNewYear = ({isAscending, countIcon}: IBoard) => {
                     }
 
                     {
-                        icons.map(() => <div className='circle'/>)
+                        icons.map((icon: any) => <div className='circle' key={icon}/>)
                     }
                     {
                         !isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><NewYearIcon1/></div>

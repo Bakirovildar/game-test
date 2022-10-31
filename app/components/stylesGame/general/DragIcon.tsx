@@ -25,9 +25,9 @@ export const DragIcon = ({numberTheme, countIcon, value}: IDragIcon) => {
                 {
                     numbers.map((icon: any, index: number) => (
                         index % 2 !== 0
-                            ? <div key={index} className='dragIcon'><span>{icon}</span><DragIconSvg
+                            ? <div key={index} draggable={"true"} className='dragIcon'><span>{icon}</span><DragIconSvg
                                 iconsName={iconsName}/></div>
-                            : <div key={index} className='dragIcon' style={{marginTop: '90px'}}>
+                            : <div key={index} draggable={"true"} className='dragIcon' style={{marginTop: '90px'}}>
                                 <span>{icon}</span><DragIconSvg iconsName={iconsName}/></div>
                     ))
                 }
