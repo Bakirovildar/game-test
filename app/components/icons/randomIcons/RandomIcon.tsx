@@ -1,4 +1,6 @@
 import {BiscuitRandom} from "./biscuit1/BiscuitRandom";
+import {FlowersRandom} from "./flowersIcon/FlowersRandom";
+import {MoneyRandom} from "./moneyIcons/MoneyRandom";
 
 interface IRandomIcon {
     iconName: string
@@ -9,6 +11,12 @@ export const RandomIcon = ({iconName}: IRandomIcon) => {
         <>
             {
                 iconName === 'BiscuitIcons' ? <BiscuitRandom/> : ''
+            }
+            {
+                iconName === 'FlowersIcons' ? <FlowersRandom/> : ''
+            }
+            {
+                iconName === 'MoneyIcons' ? <MoneyRandom/> : ''
             }
         </>
     )
