@@ -19,6 +19,10 @@ const Game = () => {
     const [numbers, setNumbers]: any = useState([])
     const [iconsName, setIconsName] = useState('')
 
+    const [startNumber, setStartNumber] = useState(0)
+
+    const [rightNumber, setRightNumber] = useState(0)
+
     useEffect(() => {
         const settings:any = localStorage.getItem('settingValue')
         setSettingsValue(JSON.parse(settings))
@@ -27,13 +31,30 @@ const Game = () => {
     useEffect(() => {
         setNumbers(filterIcons(settingsValue.count, settingsValue.value))
         setIconsName(iconName(settingsValue.numberTheme))
-    }, [settingsValue])
+
+        if (rightNumber) {
+            setNumbers(numbers.filter((num: number) => num !== rightNumber))
+        }
+    }, [settingsValue, rightNumber])
+
+    const dragStartHandler = (event: any, iconNumber: number) => {
+        setStartNumber(iconNumber)
+        console.log('startNum: ', iconNumber)
+    }
+
+    const dropHandler = (event: any, endNumber: any) => {
+        if (endNumber === startNumber) {
+            setRightNumber(endNumber)
+        }
+        event.preventDefault()
+        console.log('drop: ', iconName)
+    }
 
     return (
         <MainLayout>
             <StyledGamePages bgColor={'#DEC6AA'}>
                 {
-                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
+                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler} countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
@@ -46,6 +67,7 @@ const Game = () => {
                 }
 
                 <DragIcon
+                    dragStartHandler={dragStartHandler}
                     numbers={numbers}
                     iconsName={iconsName}
                 />

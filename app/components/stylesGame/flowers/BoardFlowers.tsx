@@ -7,9 +7,10 @@ import {Asendings} from "../../asending/Asending";
 export interface IBoard {
     isAscending: boolean
     countIcon: Array<number>
+    dropHandler: (event:any, icon:number) => void
 }
 
-export const BoardFlowers = ({isAscending, countIcon}: IBoard) => {
+export const BoardFlowers = ({isAscending, countIcon, dropHandler}: IBoard) => {
     const [icons, setIcons]: Array<any> = useState([])
 
     useEffect(() => {
@@ -23,11 +24,6 @@ export const BoardFlowers = ({isAscending, countIcon}: IBoard) => {
 
     const dragOverHandler = (event: any) => {
         event.preventDefault()
-    }
-
-    const dropHandler = (event: any, iconName: any) => {
-        event.preventDefault()
-        console.log('drop: ', iconName)
     }
 
     return (

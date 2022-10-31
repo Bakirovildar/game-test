@@ -5,13 +5,10 @@ import React from "react";
 export interface IDragIcon {
     numbers: Array<any>
     iconsName: string
+    dragStartHandler: (event: any, icon: any) => void
 }
 
-export const DragIcon = ({numbers, iconsName}: IDragIcon) => {
-
-    const dragStartHandler = (event: any, iconNumber: number) => {
-        console.log('startNum: ', iconNumber)
-    }
+export const DragIcon = ({numbers, iconsName, dragStartHandler}: IDragIcon) => {
 
     const dropHandler = (event: any, iconNumber: number) => {
         event.preventDefault()
