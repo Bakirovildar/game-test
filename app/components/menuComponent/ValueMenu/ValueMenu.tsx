@@ -3,7 +3,12 @@ import {useEffect, useState} from "react";
 
 interface IValueMenu {
     value: any
-    valueSliderHandle: ({}) => void
+    valueSliderHandle: ({}: ISlideValue) => void
+}
+
+export interface ISlideValue {
+    name: string
+    value: number
 }
 
 export function ValueMenu({value,valueSliderHandle}: IValueMenu) {
@@ -11,8 +16,8 @@ export function ValueMenu({value,valueSliderHandle}: IValueMenu) {
 
     useEffect(() => {
         value.length > 5
-            ? valueSliderHandle({name: 'count', value: +valueSlider})
-            : valueSliderHandle({name: 'value', value: +valueSlider})
+            ? valueSliderHandle({name: 'value', value: +valueSlider})
+            : valueSliderHandle({name: 'count', value: +valueSlider})
     }, [valueSlider])
 
     const handleChange = (e: any) => {

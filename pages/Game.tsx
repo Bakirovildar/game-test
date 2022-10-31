@@ -9,7 +9,7 @@ const Game = () => {
         <MainLayout>
             <StyledGamePages bgColor={'#DEC6AA'}>
                 <BgFlowers/>
-                <DragIcon />
+                <DragIcon/>
                 <BoardBiscuit/>
             </StyledGamePages>
         </MainLayout>

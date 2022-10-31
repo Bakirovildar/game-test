@@ -1,10 +1,10 @@
 import {Count} from "./count/count";
-import {ValueMenu} from "./ValueMenu/ValueMenu";
+import {ISlideValue, ValueMenu} from "./ValueMenu/ValueMenu";
 
 interface IMenu {
     title: string
     value: Array<any>
-    valueSliderHandle: any
+    valueSliderHandle: ({}:ISlideValue) => void
 }
 
 export function MenuComponent({title, value, valueSliderHandle}: IMenu) {

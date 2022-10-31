@@ -1,20 +1,16 @@
 import {StyledButton} from "./StyledButton"
-import {useState} from "react";
 
 interface ICount {
     title: string
+    isActive: boolean
+    handleClickButton: (title: string) => void
 }
 
-export function Button({title}: ICount) {
-    const [isActive, setIsActive] = useState(false)
-
-    const handleClickButton = () => {
-        setIsActive(!isActive)
-    }
+export function Button({title,isActive, handleClickButton}: ICount) {
 
     return (
         <StyledButton
-            onClick={handleClickButton}
+            onClick={() => handleClickButton(title)}
             active={isActive}>
             {title}
         </StyledButton>

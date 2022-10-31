@@ -1,4 +1,4 @@
-import { StyledBgFlowersContainer, StyledFlowers } from "../../../../styles/styledGamePage"
+import {StyledBgFlowersContainer, StyledFlowers} from "../../../../styles/styledGamePage"
 
 export const BgFlowers = () => {
     return (
