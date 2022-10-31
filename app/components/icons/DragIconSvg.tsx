@@ -1,4 +1,4 @@
-import {RandomIcon} from "./biscuitIcons/RandomIcon";
+import {RandomIcon} from "./randomIcons/RandomIcon";
 
 interface IDragIconSvg {
     iconsName: string

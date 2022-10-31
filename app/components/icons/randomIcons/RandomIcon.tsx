@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {BiscuitRandom} from "./biscuit1/BiscuitRandom";
 
 interface IRandomIcon {
@@ -6,7 +5,6 @@ interface IRandomIcon {
 }
 
 export const RandomIcon = ({iconName}: IRandomIcon) => {
-    const [nameIcons] = useState(['BiscuitIcons', 'FlowersIcons', 'MoneyIcons', 'NewYearIcons'])
     return (
         <>
             {
