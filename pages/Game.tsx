@@ -29,7 +29,7 @@ const Game = () => {
                     settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear countIcon={settingsValue.count} isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney/></> : ''
+                    settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney  countIcon={settingsValue.count} isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit/></>: ''
