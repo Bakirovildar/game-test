@@ -34,6 +34,7 @@ const Game = () => {
                 <DragIcon
                     countIcon={settingsValue.count}
                     numberTheme={settingsValue.numberTheme}
+                    value={settingsValue.value}
                 />
                 <BoardBiscuit/>
             </StyledGamePages>

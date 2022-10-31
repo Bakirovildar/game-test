@@ -1,22 +1,20 @@
 import { StyledDragIcon } from "../../../../styles/styledGamePage";
 import {DragIconSvg} from "../../icons/DragIconSvg";
 import {useEffect, useState} from "react";
+import {filterIcons} from "../../../utils/filterIcons";
 
-interface IDragIcon {
-    numberTheme: number
+export interface IDragIcon {
+    numberTheme?: number
     countIcon: number
+    value: number
 }
 
-export const DragIcon = ({numberTheme,countIcon}: IDragIcon) => {
+export const DragIcon = ({numberTheme,countIcon, value}: IDragIcon) => {
     const [numbers, setNumbers]: any = useState([])
     const [iconsName, setIconsName] = useState('')
 
     useEffect(() => {
-        const num = []
-        for (let i = 0; i < countIcon; i++) {
-            num.push(i)
-        }
-        setNumbers(num)
+        setNumbers(filterIcons(countIcon, value))
 
         if (numberTheme === 0) {
             setIconsName('FlowersIcons')
@@ -36,10 +34,10 @@ export const DragIcon = ({numberTheme,countIcon}: IDragIcon) => {
         <StyledDragIcon>
             <div className='dragIconContent'>
                 {
-                    numbers.map((icon:number, index: number) => (
+                    numbers.map((icon:any, index: number) => (
                         index % 2 !== 0
-                            ? <div key={index} className='dragIcon'><span>2</span><DragIconSvg iconsName={iconsName} /></div>
-                            : <div key={index} className='dragIcon' style={{marginTop: '90px'}}><span>7</span><DragIconSvg iconsName={iconsName} /></div>
+                            ? <div key={index} className='dragIcon'><span>{icon}</span><DragIconSvg iconsName={iconsName} /></div>
+                            : <div key={index} className='dragIcon' style={{marginTop: '90px'}}><span>{icon}</span><DragIconSvg iconsName={iconsName} /></div>
                     ))
                 }
             </div>
