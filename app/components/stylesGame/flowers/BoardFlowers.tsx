@@ -1,24 +1,34 @@
 import {StyledBoardBiscuit} from "../../../../styles/styledGamePage"
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {FlowersIcon1} from "../../icons/randomIcons/flowersIcon/FlowersIcon1";
 import {Descending} from "../../asending/Descending";
 import {Asendings} from "../../asending/Asending";
 
 export interface IBoard {
     isAscending: boolean
-    countIcon: number
+    countIcon: Array<number>
 }
 
 export const BoardFlowers = ({isAscending, countIcon}: IBoard) => {
     const [icons, setIcons]: Array<any> = useState([])
 
     useEffect(() => {
-        const count: Array<any> = []
-        for (let i = 0; i < countIcon; i++) {
-            count.push(i)
+        if (isAscending){
+            setIcons(countIcon.sort())
         }
-        setIcons(count)
-    }, [])
+        if (!isAscending) {
+            setIcons(countIcon.sort((a,b) => b - a))
+        }
+    }, [countIcon, isAscending])
+
+    const dragOverHandler = (event: any) => {
+        event.preventDefault()
+    }
+
+    const dropHandler = (event: any, iconName: any) => {
+        event.preventDefault()
+        console.log('drop: ', iconName)
+    }
 
     return (
         <StyledBoardBiscuit>
@@ -33,7 +43,12 @@ export const BoardFlowers = ({isAscending, countIcon}: IBoard) => {
                     }
 
                     {
-                        icons.map((icon: any) => <div className='circle' key={icon}/>)
+                        icons.map((icon: any) => <div
+                                                    onDragOver={event => dragOverHandler(event)}
+                                                    onDrop={event => dropHandler(event, icon)}
+                                                    className='circle'
+                                                    key={icon}
+                        />)
                     }
                     {
                         !isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>

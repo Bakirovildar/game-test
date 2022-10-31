@@ -10,36 +10,44 @@ import {BgBiscuit} from "../app/components/stylesGame/biscuit/BgBiscuit";
 import {BoardFlowers} from "../app/components/stylesGame/flowers/BoardFlowers";
 import {BoardNewYear} from "../app/components/stylesGame/new year/BoardNewYear";
 import {BoardMoney} from "../app/components/stylesGame/money/BoardMoney";
-import {Asendings} from "../app/components/asending/Asending";
+import {filterIcons} from "../app/utils/filterIcons";
+import {iconName} from "../app/utils/iconName";
 
 const Game = () => {
     const [settingsValue, setSettingsValue]:any = useState({})
+
+    const [numbers, setNumbers]: any = useState([])
+    const [iconsName, setIconsName] = useState('')
 
     useEffect(() => {
         const settings:any = localStorage.getItem('settingValue')
         setSettingsValue(JSON.parse(settings))
     }, [])
 
+    useEffect(() => {
+        setNumbers(filterIcons(settingsValue.count, settingsValue.value))
+        setIconsName(iconName(settingsValue.numberTheme))
+    }, [settingsValue])
+
     return (
         <MainLayout>
             <StyledGamePages bgColor={'#DEC6AA'}>
                 {
-                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers countIcon={settingsValue.count} isAscending={settingsValue.isAscending}/></> : ''
+                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear countIcon={settingsValue.count} isAscending={settingsValue.isAscending}/></> : ''
+                    settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney countIcon={settingsValue.count} isAscending={settingsValue.isAscending}/></> : ''
+                    settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit countIcon={settingsValue.count} isAscending={settingsValue.isAscending}/></>: ''
+                    settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit countIcon={numbers} isAscending={settingsValue.isAscending}/></>: ''
                 }
 
                 <DragIcon
-                    countIcon={settingsValue.count}
-                    numberTheme={settingsValue.numberTheme}
-                    value={settingsValue.value}
+                    numbers={numbers}
+                    iconsName={iconsName}
                 />
             </StyledGamePages>
         </MainLayout>
