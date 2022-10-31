@@ -19,14 +19,14 @@ export const BoardNewYear = ({isAscending, countIcon}: IBoard) => {
             <div className='board-container'>
                 <div className='board'>
                     {
-                        isAscending &&  <div><NewYearIcon1/></div>
+                        isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><NewYearIcon1/></div>
                     }
 
                     {
                         icons.map(() => <div className='circle'/>)
                     }
                     {
-                        !isAscending &&  <div><NewYearIcon1/></div>
+                        !isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><NewYearIcon1/></div>
                     }
                 </div>
 

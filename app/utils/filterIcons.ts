@@ -37,7 +37,7 @@ const randomNumbers = (maxNum: number, value: number)  => {
     let i = 0; // индекс для массива
     const countNum = value; // количество нужных чисел
     const max = maxNum; // максимальное число
-    const min = 0; // минимальное  число
+    const min = 1; // минимальное  число
     // цикл, пока не получим массив с уникальными числами
     while(i<countNum){
         let number: any = Math.floor((Math.random()*max)+min); // генерим случайное число

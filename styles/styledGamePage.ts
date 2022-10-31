@@ -81,6 +81,24 @@ export const StyledBoardBiscuit = styled.div`
       justify-content: center;
       align-items: center;
       
+      .number {
+        position: absolute;
+        padding-top: 30px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Calibri';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 56px;
+        line-height: 68px;
+        letter-spacing: 2px;
+
+        color: #FFFFFF;
+      }
+      
       .circle {
         background: black;
         opacity: 0.20;

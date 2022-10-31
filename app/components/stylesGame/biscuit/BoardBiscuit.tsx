@@ -2,6 +2,7 @@ import {StyledBoardBiscuit} from "../../../../styles/styledGamePage"
 import {Biscuit1} from "../../icons/randomIcons/biscuit1/Biscuit1";
 import {useEffect, useState} from "react";
 import {IBoard} from "../flowers/BoardFlowers";
+import {NewYearIcon1} from "../../icons/randomIcons/newYearIcons/NewYearIcon1";
 
 export const BoardBiscuit = ({isAscending, countIcon}: IBoard) => {
     const [icons, setIcons]: Array<any> = useState([])
@@ -19,14 +20,14 @@ export const BoardBiscuit = ({isAscending, countIcon}: IBoard) => {
             <div className='board-container'>
                 <div className='board'>
                     {
-                        isAscending &&  <div><Biscuit1/></div>
+                        isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><Biscuit1/></div>
                     }
 
                     {
                         icons.map(() => <div className='circle'/>)
                     }
                     {
-                        !isAscending &&  <div><Biscuit1/></div>
+                        !isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><Biscuit1/></div>
                     }
                 </div>
 
