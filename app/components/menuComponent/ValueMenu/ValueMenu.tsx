@@ -1,21 +1,41 @@
-import { StyledValueMenu } from "./styledValueMenu";
+import {StyledValueMenu} from "./styledValueMenu";
+import {useEffect, useState} from "react";
 
 interface IValueMenu {
-    value: Array<any>
+    value: any
+    valueSliderHandle: ({}) => void
 }
 
-export function ValueMenu({value}: IValueMenu) {
+export function ValueMenu({value,valueSliderHandle}: IValueMenu) {
+    const [valueSlider, setValueSlider] = useState(1)
+
+    useEffect(() => {
+        value.length > 5
+            ? valueSliderHandle({name: 'count', value: +valueSlider})
+            : valueSliderHandle({name: 'value', value: +valueSlider})
+    }, [valueSlider])
+
+    const handleChange = (e: any) => {
+        setValueSlider(e.target.value)
+    }
 
     return (
         <StyledValueMenu widthCount={value}>
             <div className='numbers'>
                 {
-                    value.map((i): any => <div key={i}>{i}</div>)
+                    value.map(({id, text}: any) => <div id={id} key={id}>{text}</div>)
                 }
             </div>
 
             <div className='countBox'>
-                <div className='circle'/>
+                <input
+                    type="range"
+                    id='fader'
+                    min='1'
+                    max={value.length}
+                    value={valueSlider}
+                    step='1'
+                    onChange={e => handleChange(e)}/>
             </div>
         </StyledValueMenu>
     )

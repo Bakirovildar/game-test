@@ -18,8 +18,16 @@ export const StyledValueMenu: any = styled.div`
   }
   
   .countBox {
-    background: #FFD748;
     width: ${({widthCount}: any) => (100 * (widthCount.length - 1)) + 'px'};
+  }
+
+  input[type=range]  {
+    width: 100%;
+    background: #FFD748;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 21px;
     border-radius: 10px;
   }
   

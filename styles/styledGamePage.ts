@@ -118,6 +118,22 @@ export const StyledDragIcon = styled.div`
     
     .dragIcon {
       margin: 0 2px;
+      position: relative;
+      
+      span {
+        position: absolute;
+        left: 45%;
+        top: 54%;
+        font-family: 'Calibri';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 56px;
+        line-height: 68px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 2px;
+        color: #FFFFFF;
+      }
     }
   }
 `
