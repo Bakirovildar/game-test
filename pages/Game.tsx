@@ -10,6 +10,7 @@ import {BgBiscuit} from "../app/components/stylesGame/biscuit/BgBiscuit";
 import {BoardFlowers} from "../app/components/stylesGame/flowers/BoardFlowers";
 import {BoardNewYear} from "../app/components/stylesGame/new year/BoardNewYear";
 import {BoardMoney} from "../app/components/stylesGame/money/BoardMoney";
+import {Asendings} from "../app/components/asending/Asending";
 
 const Game = () => {
     const [settingsValue, setSettingsValue]:any = useState({})
@@ -34,6 +35,7 @@ const Game = () => {
                 {
                     settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit countIcon={settingsValue.count} isAscending={settingsValue.isAscending}/></>: ''
                 }
+
                 <DragIcon
                     countIcon={settingsValue.count}
                     numberTheme={settingsValue.numberTheme}

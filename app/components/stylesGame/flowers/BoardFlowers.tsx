@@ -2,6 +2,8 @@ import {StyledBoardBiscuit} from "../../../../styles/styledGamePage"
 import {useEffect, useState} from "react";
 import {FlowersIcon1} from "../../icons/randomIcons/flowersIcon/FlowersIcon1";
 import {NewYearIcon1} from "../../icons/randomIcons/newYearIcons/NewYearIcon1";
+import {Descending} from "../../asending/Descending";
+import {Asendings} from "../../asending/Asending";
 
 export interface IBoard {
     isAscending: boolean
@@ -22,6 +24,10 @@ export const BoardFlowers = ({isAscending, countIcon}: IBoard) => {
     return (
         <StyledBoardBiscuit>
             <div className='board-container'>
+                {
+                    isAscending ? <div className='desc'><Descending/></div> : <div className='asend'><Asendings/></div>
+                }
+
                 <div className='board'>
                     {
                         isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>
@@ -37,6 +43,7 @@ export const BoardFlowers = ({isAscending, countIcon}: IBoard) => {
                 </div>
 
             </div>
+
 
             <svg xmlns="http://www.w3.org/2000/svg" width="974" height="298" viewBox="0 0 974 298" fill="none"
                  className="__web-inspector-hide-shortcut__">

@@ -3,6 +3,8 @@ import {Biscuit1} from "../../icons/randomIcons/biscuit1/Biscuit1";
 import {useEffect, useState} from "react";
 import {IBoard} from "../flowers/BoardFlowers";
 import {NewYearIcon1} from "../../icons/randomIcons/newYearIcons/NewYearIcon1";
+import {Descending} from "../../asending/Descending";
+import {Asendings} from "../../asending/Asending";
 
 export const BoardBiscuit = ({isAscending, countIcon}: IBoard) => {
     const [icons, setIcons]: Array<any> = useState([])
@@ -18,16 +20,22 @@ export const BoardBiscuit = ({isAscending, countIcon}: IBoard) => {
     return (
         <StyledBoardBiscuit>
             <div className='board-container'>
+                {
+                    isAscending ? <div className='desc'><Descending/></div> : <div className='asend'><Asendings/></div>
+                }
+
                 <div className='board'>
                     {
-                        isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><Biscuit1/></div>
+                        isAscending &&
+                        <div style={{position: "relative"}}><span className='number'>0</span><Biscuit1/></div>
                     }
 
                     {
                         icons.map(() => <div className='circle'/>)
                     }
                     {
-                        !isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><Biscuit1/></div>
+                        !isAscending &&
+                        <div style={{position: "relative"}}><span className='number'>0</span><Biscuit1/></div>
                     }
                 </div>
 

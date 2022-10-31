@@ -45,6 +45,17 @@ export const StyledBoardBiscuit = styled.div`
   display: flex;
   justify-content: center;
 
+  .asend {
+    position: absolute;
+    left: 30%;
+    top: -70px;
+  }
+  
+  .desc {
+    position: absolute;
+    right: 28%;
+    top: -70px;
+  }
 
   @media all and (min-width: 1000px) {
     .board {

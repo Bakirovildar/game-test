@@ -2,7 +2,8 @@ import {StyledBoardBiscuit} from "../../../../styles/styledGamePage"
 import {MoneyIcon1} from "../../icons/randomIcons/moneyIcons/MoneyIcon1";
 import {IBoard} from "../flowers/BoardFlowers";
 import {useEffect, useState} from "react";
-import {NewYearIcon1} from "../../icons/randomIcons/newYearIcons/NewYearIcon1";
+import {Asendings} from "../../asending/Asending";
+import {Descending} from "../../asending/Descending";
 
 export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
     const [icons, setIcons]: Array<any> = useState([])
@@ -18,16 +19,22 @@ export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
     return (
         <StyledBoardBiscuit>
             <div className='board-container'>
+                {
+                    isAscending ? <div className='desc'><Descending/></div> : <div className='asend'><Asendings/></div>
+                }
+
                 <div className='board'>
                     {
-                        isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><MoneyIcon1/></div>
+                        isAscending &&
+                        <div style={{position: "relative"}}><span className='number'>0</span><MoneyIcon1/></div>
                     }
 
                     {
                         icons.map(() => <div className='circle'/>)
                     }
                     {
-                        !isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><MoneyIcon1/></div>
+                        !isAscending &&
+                        <div style={{position: "relative"}}><span className='number'>0</span><MoneyIcon1/></div>
                     }
                 </div>
 
@@ -45,7 +52,8 @@ export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
                     <filter id="filter0_d_1_991" x="0" y="0" width="894" height="230" filterUnits="userSpaceOnUse"
                             colorInterpolationFilters="sRGB">
                         <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                                        result="hardAlpha"/>
                         <feOffset dy="4"/>
                         <feGaussianBlur stdDeviation="2"/>
@@ -54,11 +62,13 @@ export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
                         <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_991"/>
                         <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_991" result="shape"/>
                     </filter>
-                    <filter id="filter1_i_1_991" x="439.03" y="45" width="131" height="135" filterUnits="userSpaceOnUse"
+                    <filter id="filter1_i_1_991" x="439.03" y="45" width="131" height="135"
+                            filterUnits="userSpaceOnUse"
                             colorInterpolationFilters="sRGB">
                         <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                                        result="hardAlpha"/>
                         <feOffset dy="4"/>
                         <feGaussianBlur stdDeviation="12.5"/>
@@ -66,11 +76,13 @@ export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
                         <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
                         <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_991"/>
                     </filter>
-                    <filter id="filter2_i_1_991" x="169.03" y="45" width="131" height="135" filterUnits="userSpaceOnUse"
+                    <filter id="filter2_i_1_991" x="169.03" y="45" width="131" height="135"
+                            filterUnits="userSpaceOnUse"
                             colorInterpolationFilters="sRGB">
                         <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                                        result="hardAlpha"/>
                         <feOffset dy="4"/>
                         <feGaussianBlur stdDeviation="12.5"/>
@@ -78,11 +90,13 @@ export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
                         <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
                         <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_991"/>
                     </filter>
-                    <filter id="filter3_i_1_991" x="574.04" y="45" width="131" height="135" filterUnits="userSpaceOnUse"
+                    <filter id="filter3_i_1_991" x="574.04" y="45" width="131" height="135"
+                            filterUnits="userSpaceOnUse"
                             colorInterpolationFilters="sRGB">
                         <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                                        result="hardAlpha"/>
                         <feOffset dy="4"/>
                         <feGaussianBlur stdDeviation="12.5"/>
@@ -90,11 +104,13 @@ export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
                         <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
                         <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_991"/>
                     </filter>
-                    <filter id="filter4_i_1_991" x="304.04" y="45" width="131" height="135" filterUnits="userSpaceOnUse"
+                    <filter id="filter4_i_1_991" x="304.04" y="45" width="131" height="135"
+                            filterUnits="userSpaceOnUse"
                             colorInterpolationFilters="sRGB">
                         <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                                        result="hardAlpha"/>
                         <feOffset dy="4"/>
                         <feGaussianBlur stdDeviation="12.5"/>
@@ -102,11 +118,13 @@ export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
                         <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
                         <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_991"/>
                     </filter>
-                    <filter id="filter5_i_1_991" x="709.04" y="45" width="131" height="135" filterUnits="userSpaceOnUse"
+                    <filter id="filter5_i_1_991" x="709.04" y="45" width="131" height="135"
+                            filterUnits="userSpaceOnUse"
                             colorInterpolationFilters="sRGB">
                         <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                       values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                                        result="hardAlpha"/>
                         <feOffset dy="4"/>
                         <feGaussianBlur stdDeviation="12.5"/>
