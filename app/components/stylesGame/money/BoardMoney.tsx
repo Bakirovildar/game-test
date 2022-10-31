@@ -20,7 +20,7 @@ export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
         <StyledBoardBiscuit>
             <div className='board-container'>
                 {
-                    isAscending ? <div className='desc'><Descending/></div> : <div className='asend'><Asendings/></div>
+                    isAscending ? <div className='asend'><Asendings/></div> : <div className='desc'><Descending/></div>
                 }
 
                 <div className='board'>
