@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import {BgNewYear} from "../app/components/stylesGame/new year/BgNewYear";
 import {BgMoney} from "../app/components/stylesGame/money/BgMoney";
 import {BgBiscuit} from "../app/components/stylesGame/biscuit/BgBiscuit";
+import {BoardFlowers} from "../app/components/stylesGame/flowers/BoardFlowers";
 
 const Game = () => {
     const [settingsValue, setSettingsValue]:any = useState({})
@@ -20,23 +21,22 @@ const Game = () => {
         <MainLayout>
             <StyledGamePages bgColor={'#DEC6AA'}>
                 {
-                    settingsValue.numberTheme === 0 ? <BgFlowers/> : ''
+                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 1 ? <BgNewYear/> : ''
                 }
                 {
-                    settingsValue.numberTheme === 2 ? <BgMoney/> : ''
+                    settingsValue.numberTheme === 2 ? <><BgMoney/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 3 ? <BgBiscuit/> : ''
+                    settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit/></>: ''
                 }
                 <DragIcon
                     countIcon={settingsValue.count}
                     numberTheme={settingsValue.numberTheme}
                     value={settingsValue.value}
                 />
-                <BoardBiscuit/>
             </StyledGamePages>
         </MainLayout>
     )

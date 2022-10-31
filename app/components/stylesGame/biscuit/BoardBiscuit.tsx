@@ -88,33 +88,33 @@ export const BoardBiscuit = () => {
                             <defs>
                                 <linearGradient id="paint0_linear_1_2591" x1="37.579" y1="17.8661" x2="194.253"
                                                 y2="194.853" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#FFD061"/>
-                                    <stop offset="1" stop-color="#CC5327"/>
+                                    <stop stopColor="#FFD061"/>
+                                    <stop offset="1" stopColor="#CC5327"/>
                                 </linearGradient>
                                 <linearGradient id="paint1_linear_1_2591" x1="22.9507" y1="13.7553" x2="104.512"
                                                 y2="116.397" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#611111"/>
-                                    <stop offset="1" stop-color="#310736"/>
+                                    <stop stopColor="#611111"/>
+                                    <stop offset="1" stopColor="#310736"/>
                                 </linearGradient>
                                 <linearGradient id="paint2_linear_1_2591" x1="53.477" y1="-10.5015" x2="135.039"
                                                 y2="92.1404" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#611111"/>
-                                    <stop offset="1" stop-color="#310736"/>
+                                    <stop stopColor="#611111"/>
+                                    <stop offset="1" stopColor="#310736"/>
                                 </linearGradient>
                                 <linearGradient id="paint3_linear_1_2591" x1="58.9336" y1="-14.8373" x2="140.495"
                                                 y2="87.8047" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#611111"/>
-                                    <stop offset="1" stop-color="#310736"/>
+                                    <stop stopColor="#611111"/>
+                                    <stop offset="1" stopColor="#310736"/>
                                 </linearGradient>
                                 <linearGradient id="paint4_linear_1_2591" x1="15.7224" y1="19.499" x2="97.2838"
                                                 y2="122.141" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#611111"/>
-                                    <stop offset="1" stop-color="#310736"/>
+                                    <stop stopColor="#611111"/>
+                                    <stop offset="1" stopColor="#310736"/>
                                 </linearGradient>
                                 <linearGradient id="paint5_linear_1_2591" x1="36.9269" y1="12.4735" x2="145.343"
                                                 y2="144.294" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#FFD061"/>
-                                    <stop offset="1" stop-color="#CC5327"/>
+                                    <stop stopColor="#FFD061"/>
+                                    <stop offset="1" stopColor="#CC5327"/>
                                 </linearGradient>
                             </defs>
                         </svg>
