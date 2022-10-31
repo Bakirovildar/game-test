@@ -54,7 +54,7 @@ const Game = () => {
         <MainLayout>
             <StyledGamePages bgColor={'#DEC6AA'}>
                 {
-                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler} countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
+                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler} rightNumber={rightNumber} countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''

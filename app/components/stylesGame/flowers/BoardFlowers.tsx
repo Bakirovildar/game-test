@@ -3,14 +3,16 @@ import React, {useEffect, useState} from "react";
 import {FlowersIcon1} from "../../icons/randomIcons/flowersIcon/FlowersIcon1";
 import {Descending} from "../../asending/Descending";
 import {Asendings} from "../../asending/Asending";
+import {FlowersIcon3} from "../../icons/randomIcons/flowersIcon/FlowersIcon3";
 
 export interface IBoard {
     isAscending: boolean
     countIcon: Array<number>
     dropHandler: (event:any, icon:number) => void
+    rightNumber: number
 }
 
-export const BoardFlowers = ({isAscending, countIcon, dropHandler}: IBoard) => {
+export const BoardFlowers = ({isAscending, countIcon, dropHandler, rightNumber}: IBoard) => {
     const [icons, setIcons]: Array<any> = useState([])
 
     useEffect(() => {
@@ -39,12 +41,22 @@ export const BoardFlowers = ({isAscending, countIcon, dropHandler}: IBoard) => {
                     }
 
                     {
-                        icons.map((icon: any) => <div
+                        icons.map((icon: any) => {
+                            if (icon === rightNumber) {
+                                return <div key={icon}><FlowersIcon3 /></div>
+                            }
+                            else {
+                                return (
+                                    <div
                                                     onDragOver={event => dragOverHandler(event)}
                                                     onDrop={event => dropHandler(event, icon)}
                                                     className='circle'
                                                     key={icon}
-                        />)
+                                    />
+                                )
+                            }
+
+                        })
                     }
                     {
                         !isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>
