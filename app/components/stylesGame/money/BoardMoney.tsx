@@ -16,7 +16,7 @@ export const BoardMoney = ({isAscending, countIcon, dropHandler, allRightNumbers
         }
 
         if (isAscending) {
-            setIcons(countIcon[0].desc)
+            setIcons(countIcon[1].desc)
         }
 
     }, [countIcon, isAscending])

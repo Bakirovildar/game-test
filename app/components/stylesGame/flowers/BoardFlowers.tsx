@@ -22,7 +22,7 @@ export const BoardFlowers = ({isAscending, countIcon, dropHandler, allRightNumbe
         }
 
         if (isAscending) {
-            setIcons(countIcon[0].desc)
+            setIcons(countIcon[1].desc)
         }
 
     }, [countIcon, isAscending])
