@@ -9,10 +9,10 @@ export interface IBoard {
     isAscending: boolean
     countIcon: Array<any>
     dropHandler: (event: any, icon: number) => void
-    rightNumber: number
+    allRightNumbers: Array<number>
 }
 
-export const BoardFlowers = ({isAscending, countIcon, dropHandler, rightNumber}: IBoard) => {
+export const BoardFlowers = ({isAscending, countIcon, dropHandler, allRightNumbers}: IBoard) => {
     const [icons, setIcons]: any = useState([])
 
     useEffect(() => {
@@ -46,8 +46,8 @@ export const BoardFlowers = ({isAscending, countIcon, dropHandler, rightNumber}:
 
                     {
                         icons.map((icon: any) => {
-                            if (icon === rightNumber) {
-                                return <div key={icon}><FlowersIcon3/></div>
+                            if (allRightNumbers.includes(icon)) {
+                                return <div key={icon} style={{position: "relative"}}><span className='number'>{icon}</span><FlowersIcon3/></div>
                             } else {
                                 return (
                                     <div

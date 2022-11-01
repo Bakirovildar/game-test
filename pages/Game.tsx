@@ -24,6 +24,7 @@ const Game = () => {
     const [startNumber, setStartNumber] = useState(0)
 
     const [rightNumber, setRightNumber] = useState(0)
+    const [allRightNumbers, setAllRightNumbers]: any = useState([])
 
     useEffect(() => {
         const settings: any = localStorage.getItem('settingValue')
@@ -57,6 +58,8 @@ const Game = () => {
     const dropHandler = (event: any, endNumber: any) => {
         if (endNumber === startNumber) {
             setRightNumber(endNumber)
+
+            setAllRightNumbers([...allRightNumbers, endNumber])
         }
         event.preventDefault()
         console.log('drop: ', iconName)
@@ -67,7 +70,7 @@ const Game = () => {
             <StyledGamePages bgColor={'#DEC6AA'}>
                 {
                     settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler}
-                                                                                   rightNumber={rightNumber}
+                                                                                   allRightNumbers={allRightNumbers}
                                                                                    countIcon={sortNumbers}
                                                                                    isAscending={settingsValue.isAscending}/></> : ''
                 }
