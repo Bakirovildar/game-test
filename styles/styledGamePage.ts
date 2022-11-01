@@ -169,3 +169,34 @@ export const StyledDragIcon = styled.div`
     }
   }
 `
+
+export const StyledModal = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.33);
+  
+  .button {
+    position: absolute;
+    bottom: -200px;
+    right: 280px;
+    background: #2BD600;
+    width: 263px;
+    height: 68px;
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #FFFFFF;
+  }
+`

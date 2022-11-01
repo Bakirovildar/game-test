@@ -12,6 +12,7 @@ import {BoardNewYear} from "../app/components/stylesGame/new year/BoardNewYear";
 import {BoardMoney} from "../app/components/stylesGame/money/BoardMoney";
 import {filterIcons} from "../app/utils/filterIcons";
 import {iconName} from "../app/utils/iconName";
+import {ModalEndGame} from "../app/components/ModalEndGame";
 
 const Game = () => {
     const [settingsValue, setSettingsValue]: any = useState({})
@@ -25,6 +26,8 @@ const Game = () => {
 
     const [rightNumber, setRightNumber] = useState(0)
     const [allRightNumbers, setAllRightNumbers]: any = useState([])
+
+    const [isEndGame, setIsEndGame] = useState(false)
 
     useEffect(() => {
         const settings: any = localStorage.getItem('settingValue')
@@ -57,6 +60,12 @@ const Game = () => {
             setNumbers(numbers.filter((num: number) => num !== rightNumber))
         }
     }, [rightNumber])
+
+    useEffect(() => {
+        if (allRightNumbers.length && !numbers.length) {
+            setIsEndGame(true)
+        }
+    }, [numbers])
 
     const dragStartHandler = (event: any, iconNumber: number) => {
         setStartNumber(iconNumber)
@@ -104,6 +113,9 @@ const Game = () => {
                     numbers={numbers}
                     iconsName={iconsName}
                 />
+                {
+                    isEndGame && <ModalEndGame/>
+                }
             </StyledGamePages>
         </MainLayout>
     )

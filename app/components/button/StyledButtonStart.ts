@@ -10,6 +10,7 @@ export const StyledButtonStart: any = styled.div`
   line-height: 44px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   margin-top: 96px;
   color: #FFFFFF;
 `

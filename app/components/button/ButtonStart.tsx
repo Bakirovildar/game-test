@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { StyledButtonStart } from "./StyledButtonStart"
+import {StyledButtonStart} from "./StyledButtonStart"
 
 interface ICount {
     title: string
@@ -8,10 +8,11 @@ interface ICount {
 
 export function ButtonStart({title, clickPlayHandle}: ICount) {
     return (
-        <StyledButtonStart>
-            <Link onClick={clickPlayHandle} href={'/Game'}>
+
+        <Link href={'/Game'}>
+            <StyledButtonStart onClick={clickPlayHandle}>
                 {title}
-            </Link>
-        </StyledButtonStart>
+            </StyledButtonStart>
+        </Link>
     )
 }
