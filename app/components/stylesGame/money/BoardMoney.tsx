@@ -1,20 +1,29 @@
 import {StyledBoardBiscuit} from "../../../../styles/styledGamePage"
 import {MoneyIcon1} from "../../icons/randomIcons/moneyIcons/MoneyIcon1";
 import {IBoard} from "../flowers/BoardFlowers";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Asendings} from "../../asending/Asending";
 import {Descending} from "../../asending/Descending";
+import {MoneyIcon2} from "../../icons/randomIcons/moneyIcons/MoneyIcon2";
 
-export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
-    const [icons, setIcons]: Array<any> = useState([])
+export const BoardMoney = ({isAscending, countIcon, dropHandler, allRightNumbers}: IBoard) => {
+    const [icons, setIcons]: any = useState([])
 
     useEffect(() => {
-        const count: Array<any> = []
-        for (let i = 0; i < countIcon; i++) {
-            count.push(i)
+
+        if (!isAscending) {
+            setIcons(countIcon[0].asc)
         }
-        setIcons(count)
-    }, [])
+
+        if (isAscending) {
+            setIcons(countIcon[0].desc)
+        }
+
+    }, [countIcon, isAscending])
+
+    const dragOverHandler = (event: any) => {
+        event.preventDefault()
+    }
 
     return (
         <StyledBoardBiscuit>
@@ -30,7 +39,22 @@ export const BoardMoney = ({isAscending, countIcon}: IBoard) => {
                     }
 
                     {
-                        icons.map((icon: any) => <div className='circle' key={icon}/>)
+                        icons.map((icon: any) => {
+                            if (allRightNumbers.includes(icon)) {
+                                return <div key={icon} style={{position: "relative"}}><span
+                                    className='number'>{icon}</span><MoneyIcon2/></div>
+                            } else {
+                                return (
+                                    <div
+                                        onDragOver={event => dragOverHandler(event)}
+                                        onDrop={event => dropHandler(event, icon)}
+                                        className='circle'
+                                        key={icon}
+                                    />
+                                )
+                            }
+
+                        })
                     }
                     {
                         !isAscending &&

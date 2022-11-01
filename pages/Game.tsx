@@ -75,15 +75,21 @@ const Game = () => {
                                                                                    isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear countIcon={numbers}
+                    settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear dropHandler={dropHandler}
+                                                                                   allRightNumbers={allRightNumbers}
+                                                                                   countIcon={sortNumbers}
                                                                                    isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney countIcon={numbers}
+                    settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney dropHandler={dropHandler}
+                                                                               allRightNumbers={allRightNumbers}
+                                                                               countIcon={sortNumbers}
                                                                                isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit countIcon={numbers}
+                    settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit dropHandler={dropHandler}
+                                                                                   allRightNumbers={allRightNumbers}
+                                                                                   countIcon={sortNumbers}
                                                                                    isAscending={settingsValue.isAscending}/></> : ''
                 }
 
