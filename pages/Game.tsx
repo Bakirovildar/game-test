@@ -10,20 +10,16 @@ import {BgBiscuit} from "../app/components/stylesGame/biscuit/BgBiscuit";
 import {BoardFlowers} from "../app/components/stylesGame/flowers/BoardFlowers";
 import {BoardNewYear} from "../app/components/stylesGame/new year/BoardNewYear";
 import {BoardMoney} from "../app/components/stylesGame/money/BoardMoney";
-import {filterIcons} from "../app/utils/filterIcons";
-import {iconName} from "../app/utils/iconName";
+import {getRandomIcons} from "../app/utils/getRandomIcons";
 import {ModalEndGame} from "../app/components/ModalEndGame";
 import {getSettings, IGameSettings} from "../app/utils/settingsService";
-
 
 
 const Game = () => {
     const [settingsValue, setSettingsValue]: any = useState<IGameSettings | Object>({})
 
-    const [numbers, setNumbers] = useState([])
+    const [randomIcons, setRandomIcons] = useState([])
     const [sortNumbers, setSortNumbers]: any = useState([])
-
-    const [iconsName, setIconsName] = useState('')
 
     const [startNumber, setStartNumber] = useState(0)
 
@@ -37,20 +33,19 @@ const Game = () => {
     }, [])
 
     useEffect(() => {
-        const randomNumbers = filterIcons(settingsValue.count, settingsValue.value)
-        setNumbers(randomNumbers)
-        setIconsName(iconName(settingsValue.numberTheme))
+        const randomIcons = getRandomIcons(settingsValue.count, settingsValue.value)
+        setRandomIcons(randomIcons)
 
         const rightNumbers = [
             {
                 'asc': settingsValue.value === 1
-                    ? [...randomNumbers].sort((a: any, b: any) => b - a).sort()
-                    : [...randomNumbers].sort((a: any, b: any) => b - a)
+                    ? [...randomIcons].sort((a: any, b: any) => b - a).sort()
+                    : [...randomIcons].sort((a: any, b: any) => b - a)
             },
             {
                 'desc': settingsValue.value === 1
-                    ? [...randomNumbers].sort((a: any, b: any) => a - b).sort()
-                    : [...randomNumbers].sort((a: any, b: any) => a - b)
+                    ? [...randomIcons].sort((a: any, b: any) => a - b).sort()
+                    : [...randomIcons].sort((a: any, b: any) => a - b)
             }
         ]
 
@@ -59,16 +54,16 @@ const Game = () => {
 
     useEffect(() => {
         if (rightNumber !== 0) {
-            const filter = numbers.filter((num: number) => num !== rightNumber)
-            setNumbers(filter)
+            const filter = randomIcons.filter((num: number) => num !== rightNumber)
+            setRandomIcons(filter)
         }
     }, [rightNumber])
 
     useEffect(() => {
-        if (allRightNumbers.length && !numbers.length) {
+        if (allRightNumbers.length && !randomIcons.length) {
             setIsEndGame(true)
         }
-    }, [numbers])
+    }, [randomIcons])
 
     const dragStartHandler = (event: any, iconNumber: number) => {
         setStartNumber(iconNumber)
@@ -113,8 +108,8 @@ const Game = () => {
 
                 <DragIcon
                     dragStartHandler={dragStartHandler}
-                    numbers={numbers}
-                    iconsName={iconsName}
+                    numbers={randomIcons}
+                    theme={settingsValue.numberTheme}
                 />
                 {
                     isEndGame && <ModalEndGame/>

@@ -1,16 +1,16 @@
 import {StyledDragIcon} from "../../../../styles/styledGamePage";
-import {DragIconSvg} from "../../icons/DragIconSvg";
 import React from "react";
+import {RandomIcon} from "../../icons/randomIcons/RandomIcon";
 
 export interface IDragIcon {
     numbers: Array<any>
-    iconsName: string
+    theme: number
     dragStartHandler: (event: any, icon: any) => void
 }
 
-export const DragIcon = ({numbers, iconsName, dragStartHandler}: IDragIcon) => {
+export const DragIcon = ({numbers, theme, dragStartHandler}: IDragIcon) => {
 
-    const dropHandler = (event: any, iconNumber: number) => {
+    const dropHandler = (event: any) => {
         event.preventDefault()
         console.log('drop: ', event)
     }
@@ -28,27 +28,27 @@ export const DragIcon = ({numbers, iconsName, dragStartHandler}: IDragIcon) => {
                             ? <div
                                 key={index}
                                 draggable={"true"}
-                                onDrop={event => dropHandler(event, icon)}
+                                onDrop={event => dropHandler(event)}
                                 onDragStart={event => dragStartHandler(event, icon)}
                                 onDragOver={event => dragOverHandler(event)}
                                 className='dragIcon'
                             >
                                 <span>{icon}</span>
-                                <DragIconSvg
-                                    iconsName={iconsName}/>
+                                <RandomIcon
+                                    theme={theme}/>
                             </div>
 
                             : <div
                                 key={index}
                                 draggable={"true"}
-                                onDrop={event => dropHandler(event, icon)}
+                                onDrop={event => dropHandler(event)}
                                 onDragStart={event => dragStartHandler(event, icon)}
                                 onDragOver={event => dragOverHandler(event)}
                                 className='dragIcon'
                                 style={{marginTop: '90px'}}
                             >
                                 <span>{icon}</span>
-                                <DragIconSvg iconsName={iconsName}/>
+                                <RandomIcon theme={theme}/>
                             </div>
                     ))
                 }

@@ -8,13 +8,13 @@ export const FlowersRandom = () => {
     const [randomNum, setRandomNum] = useState(0)
 
     useEffect(() => {
-        setRandomNum(Math.floor(Math.random()*4))
+        setRandomNum(Math.floor(Math.random() * 4))
     }, [])
 
     return (
         <div>
             {
-                randomNum === 0 ? <FlowersIcon1 /> : ''
+                randomNum === 0 ? <FlowersIcon1/> : ''
             }
 
             {

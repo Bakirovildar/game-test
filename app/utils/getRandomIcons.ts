@@ -1,4 +1,4 @@
-export const filterIcons = (countIcon: number, value: number) => {
+export const getRandomIcons = (countIcon: number, value: number) => {
     let num: any = []
     const alphabet = ['Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю']
 
