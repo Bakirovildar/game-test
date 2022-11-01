@@ -37,16 +37,17 @@ const Game = () => {
         setIconsName(iconName(settingsValue.numberTheme))
 
         const rightNumbers = [
-            {'asc': settingsValue.value === 1
-                    ? [...randomNumbers].sort((a: any, b: any) => b - a).sort().reverse()
-                    :  [...randomNumbers].sort((a: any, b: any) => b - a)
+            {
+                'asc': settingsValue.value === 1
+                    ? [...randomNumbers].sort((a: any, b: any) => b - a).sort()
+                    : [...randomNumbers].sort((a: any, b: any) => b - a)
             },
-            {'desc': settingsValue.value === 1
+            {
+                'desc': settingsValue.value === 1
                     ? [...randomNumbers].sort((a: any, b: any) => a - b).sort()
-                    : [...randomNumbers].sort((a: any, b: any) => a - b)}
+                    : [...randomNumbers].sort((a: any, b: any) => a - b)
+            }
         ]
-
-        console.log('rightNumbers', rightNumbers)
 
         setSortNumbers(rightNumbers)
     }, [settingsValue])
