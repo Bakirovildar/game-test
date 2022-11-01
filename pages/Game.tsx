@@ -37,9 +37,16 @@ const Game = () => {
         setIconsName(iconName(settingsValue.numberTheme))
 
         const rightNumbers = [
-            {'asc': [...randomNumbers].sort((a: any, b: any) => b - a)},
-            {'desc': [...randomNumbers].sort((a: any, b: any) => a - b)}
+            {'asc': settingsValue.value === 1
+                    ? [...randomNumbers].sort((a: any, b: any) => b - a).sort().reverse()
+                    :  [...randomNumbers].sort((a: any, b: any) => b - a)
+            },
+            {'desc': settingsValue.value === 1
+                    ? [...randomNumbers].sort((a: any, b: any) => a - b).sort()
+                    : [...randomNumbers].sort((a: any, b: any) => a - b)}
         ]
+
+        console.log('rightNumbers', rightNumbers)
 
         setSortNumbers(rightNumbers)
     }, [settingsValue])
@@ -70,19 +77,19 @@ const Game = () => {
                     settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler}
                                                                                    allRightNumbers={allRightNumbers}
                                                                                    countIcon={sortNumbers}
-                                                                                   isAscending={settingsValue.isAscending}/></> : ''
+                                                                                   settingsValue={settingsValue}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear dropHandler={dropHandler}
                                                                                    allRightNumbers={allRightNumbers}
                                                                                    countIcon={sortNumbers}
-                                                                                   isAscending={settingsValue.isAscending}/></> : ''
+                                                                                   settingsValue={settingsValue}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney dropHandler={dropHandler}
                                                                                allRightNumbers={allRightNumbers}
                                                                                countIcon={sortNumbers}
-                                                                               isAscending={settingsValue.isAscending}/></> : ''
+                                                                               settingsValue={settingsValue}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit dropHandler={dropHandler}

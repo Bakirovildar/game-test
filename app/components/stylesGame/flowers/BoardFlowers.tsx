@@ -6,26 +6,26 @@ import {Asendings} from "../../asending/Asending";
 import {FlowersIcon3} from "../../icons/randomIcons/flowersIcon/FlowersIcon3";
 
 export interface IBoard {
-    isAscending: boolean
+    settingsValue: any
     countIcon: Array<any>
     dropHandler: (event: any, icon: number) => void
     allRightNumbers: Array<number>
 }
 
-export const BoardFlowers = ({isAscending, countIcon, dropHandler, allRightNumbers}: IBoard) => {
+export const BoardFlowers = ({settingsValue, countIcon, dropHandler, allRightNumbers}: IBoard) => {
     const [icons, setIcons]: any = useState([])
 
     useEffect(() => {
 
-        if (!isAscending) {
+        if (!settingsValue.isAscending) {
             setIcons(countIcon[0].asc)
         }
 
-        if (isAscending) {
+        if (settingsValue.isAscending) {
             setIcons(countIcon[1].desc)
         }
 
-    }, [countIcon, isAscending])
+    }, [countIcon, settingsValue])
 
     const dragOverHandler = (event: any) => {
         event.preventDefault()
@@ -35,13 +35,13 @@ export const BoardFlowers = ({isAscending, countIcon, dropHandler, allRightNumbe
         <StyledBoardBiscuit>
             <div className='board-container'>
                 {
-                    isAscending ? <div className='asend'><Asendings/></div> : <div className='desc'><Descending/></div>
+                    settingsValue.isAscending ? <div className='asend'><Asendings/></div> : <div className='desc'><Descending/></div>
                 }
 
                 <div className='board'>
                     {
-                        isAscending &&
-                        <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>
+                        settingsValue.isAscending &&
+                        <div style={{position: "relative"}}><span className='number'>{settingsValue.value === 1 ? 'A' : 0}</span><FlowersIcon1/></div>
                     }
 
                     {
@@ -63,8 +63,8 @@ export const BoardFlowers = ({isAscending, countIcon, dropHandler, allRightNumbe
                         })
                         }
                     {
-                        !isAscending &&
-                        <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>
+                        !settingsValue.isAscending &&
+                        <div style={{position: "relative"}}><span className='number'>{settingsValue.value === 1 ? 'Я' : 0}</span><FlowersIcon1/></div>
                     }
 
                         </div>
