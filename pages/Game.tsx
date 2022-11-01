@@ -52,7 +52,6 @@ const Game = () => {
 
     const dragStartHandler = (event: any, iconNumber: number) => {
         setStartNumber(iconNumber)
-        console.log('startNum: ', iconNumber)
     }
 
     const dropHandler = (event: any, endNumber: any) => {
@@ -62,7 +61,6 @@ const Game = () => {
             setAllRightNumbers([...allRightNumbers, endNumber])
         }
         event.preventDefault()
-        console.log('drop: ', iconName)
     }
 
     return (
@@ -90,7 +88,7 @@ const Game = () => {
                     settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit dropHandler={dropHandler}
                                                                                    allRightNumbers={allRightNumbers}
                                                                                    countIcon={sortNumbers}
-                                                                                   isAscending={settingsValue.isAscending}/></> : ''
+                                                                                   settingsValue={settingsValue}/></> : ''
                 }
 
                 <DragIcon
