@@ -14,9 +14,11 @@ import {filterIcons} from "../app/utils/filterIcons";
 import {iconName} from "../app/utils/iconName";
 
 const Game = () => {
-    const [settingsValue, setSettingsValue]:any = useState({})
+    const [settingsValue, setSettingsValue]: any = useState({})
 
     const [numbers, setNumbers]: any = useState([])
+    const [sortNumbers, setSortNumbers]: any = useState([])
+
     const [iconsName, setIconsName] = useState('')
 
     const [startNumber, setStartNumber] = useState(0)
@@ -24,18 +26,28 @@ const Game = () => {
     const [rightNumber, setRightNumber] = useState(0)
 
     useEffect(() => {
-        const settings:any = localStorage.getItem('settingValue')
+        const settings: any = localStorage.getItem('settingValue')
         setSettingsValue(JSON.parse(settings))
     }, [])
 
     useEffect(() => {
-        setNumbers(filterIcons(settingsValue.count, settingsValue.value))
+        const randomNumbers = filterIcons(settingsValue.count, settingsValue.value)
+        setNumbers(randomNumbers)
         setIconsName(iconName(settingsValue.numberTheme))
 
-        if (rightNumber) {
+        const rightNumbers = [
+            {'asc': [...randomNumbers].sort((a: any, b: any) => b - a)},
+            {'desc': [...randomNumbers].sort((a: any, b: any) => a - b)}
+        ]
+
+        setSortNumbers(rightNumbers)
+    }, [settingsValue])
+
+    useEffect(() => {
+        if (rightNumber !== 0) {
             setNumbers(numbers.filter((num: number) => num !== rightNumber))
         }
-    }, [settingsValue, rightNumber])
+    }, [rightNumber])
 
     const dragStartHandler = (event: any, iconNumber: number) => {
         setStartNumber(iconNumber)
@@ -54,16 +66,22 @@ const Game = () => {
         <MainLayout>
             <StyledGamePages bgColor={'#DEC6AA'}>
                 {
-                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler} rightNumber={rightNumber} countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
+                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler}
+                                                                                   rightNumber={rightNumber}
+                                                                                   countIcon={sortNumbers}
+                                                                                   isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
+                    settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear countIcon={numbers}
+                                                                                   isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney countIcon={numbers} isAscending={settingsValue.isAscending}/></> : ''
+                    settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney countIcon={numbers}
+                                                                               isAscending={settingsValue.isAscending}/></> : ''
                 }
                 {
-                    settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit countIcon={numbers} isAscending={settingsValue.isAscending}/></>: ''
+                    settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit countIcon={numbers}
+                                                                                   isAscending={settingsValue.isAscending}/></> : ''
                 }
 
                 <DragIcon

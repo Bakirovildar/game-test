@@ -7,21 +7,24 @@ import {FlowersIcon3} from "../../icons/randomIcons/flowersIcon/FlowersIcon3";
 
 export interface IBoard {
     isAscending: boolean
-    countIcon: Array<number>
-    dropHandler: (event:any, icon:number) => void
+    countIcon: Array<any>
+    dropHandler: (event: any, icon: number) => void
     rightNumber: number
 }
 
 export const BoardFlowers = ({isAscending, countIcon, dropHandler, rightNumber}: IBoard) => {
-    const [icons, setIcons]: Array<any> = useState([])
+    const [icons, setIcons]: any = useState([])
 
     useEffect(() => {
-        if (isAscending){
-            setIcons(countIcon.sort())
-        }
+
         if (!isAscending) {
-            setIcons(countIcon.sort((a,b) => b - a))
+            setIcons(countIcon[0].asc)
         }
+
+        if (isAscending) {
+            setIcons(countIcon[0].desc)
+        }
+
     }, [countIcon, isAscending])
 
     const dragOverHandler = (event: any) => {
@@ -37,21 +40,21 @@ export const BoardFlowers = ({isAscending, countIcon, dropHandler, rightNumber}:
 
                 <div className='board'>
                     {
-                        isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>
+                        isAscending &&
+                        <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>
                     }
 
                     {
                         icons.map((icon: any) => {
                             if (icon === rightNumber) {
-                                return <div key={icon}><FlowersIcon3 /></div>
-                            }
-                            else {
+                                return <div key={icon}><FlowersIcon3/></div>
+                            } else {
                                 return (
                                     <div
-                                                    onDragOver={event => dragOverHandler(event)}
-                                                    onDrop={event => dropHandler(event, icon)}
-                                                    className='circle'
-                                                    key={icon}
+                                        onDragOver={event => dragOverHandler(event)}
+                                        onDrop={event => dropHandler(event, icon)}
+                                        className='circle'
+                                        key={icon}
                                     />
                                 )
                             }
@@ -59,7 +62,8 @@ export const BoardFlowers = ({isAscending, countIcon, dropHandler, rightNumber}:
                         })
                     }
                     {
-                        !isAscending &&  <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>
+                        !isAscending &&
+                        <div style={{position: "relative"}}><span className='number'>0</span><FlowersIcon1/></div>
                     }
 
                 </div>
