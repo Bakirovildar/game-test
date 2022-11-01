@@ -57,7 +57,8 @@ const Game = () => {
 
     useEffect(() => {
         if (rightNumber !== 0) {
-            setNumbers(numbers.filter((num: number) => num !== rightNumber))
+            const filter = numbers.filter((num: number) => num !== rightNumber)
+            setNumbers(filter)
         }
     }, [rightNumber])
 

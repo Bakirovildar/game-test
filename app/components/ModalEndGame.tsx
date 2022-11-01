@@ -1,7 +1,9 @@
 import {StyledModal} from "../../styles/styledGamePage";
-import {router} from "next/client";
+import {useRouter} from "next/router";
 
 export const ModalEndGame = () => {
+    const router = useRouter();
+
     return (
         <StyledModal>
             <svg xmlns="http://www.w3.org/2000/svg" width="853" height="598" viewBox="0 0 853 598" fill="none">
