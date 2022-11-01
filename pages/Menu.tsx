@@ -12,21 +12,21 @@ const Menu = () => {
     const [isActiveDesc, setIsActiveDesc] = useState(false)
     const [isActiveAsc, setIsActiveAsc] = useState(true)
 
-    const [valueData]: any = useState([
-        {id: 1, text: '1'},
-        {id: 2, text: '2'},
-        {id: 3, text: '3'},
-        {id: 4, text: '4'},
-        {id: 5, text: '5'},
+    const [subjectCount]: any = useState([
+        {value: '1'},
+        {value: '2'},
+        {value: '3'},
+        {value: '4'},
+        {value: '5'},
     ])
 
-    const [arrValue] = useState([
-        {id: 'A', text: 'A'},
-        {id: 9, text: '9'},
-        {id: 19, text: '19'},
-        {id: 50, text: '50'},
-        {id: 99, text: '99'},
-        {id: 999, text: '999'}
+    const [range] = useState([
+        {value: 'A'},
+        {value: '9'},
+        {value: '19'},
+        {value: '50'},
+        {value: '99'},
+        {value: '999'}
     ])
     const [countIcon, setCountIcon] = useState(1)
     const [valueIcon, setValueIcon] = useState(1)
@@ -66,8 +66,8 @@ const Menu = () => {
         <MainLayout valueSettings={valueSettings}>
             <StyledMenuComponent>
                 <div className='module'>
-                    <MenuComponent title='Кол-во предметов' valueSliderHandle={valueSliderHandle} value={valueData}/>
-                    <MenuComponent title='Значения' valueSliderHandle={valueSliderHandle} value={arrValue}/>
+                    <MenuComponent title='Кол-во предметов' valueSliderHandle={valueSliderHandle} value={subjectCount}/>
+                    <MenuComponent title='Значения' valueSliderHandle={valueSliderHandle} value={range}/>
 
                     <div className='buttons'>
                         <Button isActive={isActiveAsc} handleClickButton={handleClickDesc} title='По возрастанию'/>

@@ -29,8 +29,8 @@ export function ValueMenu({value,valueSliderHandle}: IValueMenu) {
             <div className='numbers'>
                 {
                     value.length < 6
-                        ? value.map(({id, text}: any) => <div className='styleNum1' id={id} key={id}>{text}</div>)
-                        : value.map(({id, text}: any) => <div className='styleNum' id={id} key={id}>{text}</div>)
+                        ? value.map(({value}: any) => <div className='styleNum1' id={value} key={value}>{value}</div>)
+                        : value.map(({value}: any) => <div className='styleNum' id={value} key={value}>{value}</div>)
                 }
             </div>
 
