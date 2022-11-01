@@ -28,7 +28,9 @@ export function ValueMenu({value,valueSliderHandle}: IValueMenu) {
         <StyledValueMenu widthCount={value}>
             <div className='numbers'>
                 {
-                    value.map(({id, text}: any) => <div id={id} key={id}>{text}</div>)
+                    value.length < 6
+                        ? value.map(({id, text}: any) => <div className='styleNum1' id={id} key={id}>{text}</div>)
+                        : value.map(({id, text}: any) => <div className='styleNum' id={id} key={id}>{text}</div>)
                 }
             </div>
 
