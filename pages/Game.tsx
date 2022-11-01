@@ -13,11 +13,14 @@ import {BoardMoney} from "../app/components/stylesGame/money/BoardMoney";
 import {filterIcons} from "../app/utils/filterIcons";
 import {iconName} from "../app/utils/iconName";
 import {ModalEndGame} from "../app/components/ModalEndGame";
+import {getSettings, IGameSettings} from "../app/utils/settingsService";
+
+
 
 const Game = () => {
-    const [settingsValue, setSettingsValue]: any = useState({})
+    const [settingsValue, setSettingsValue]: any = useState<IGameSettings | Object>({})
 
-    const [numbers, setNumbers]: any = useState([])
+    const [numbers, setNumbers] = useState([])
     const [sortNumbers, setSortNumbers]: any = useState([])
 
     const [iconsName, setIconsName] = useState('')
@@ -30,8 +33,7 @@ const Game = () => {
     const [isEndGame, setIsEndGame] = useState(false)
 
     useEffect(() => {
-        const settings: any = localStorage.getItem('settingValue')
-        setSettingsValue(JSON.parse(settings))
+        setSettingsValue(getSettings())
     }, [])
 
     useEffect(() => {

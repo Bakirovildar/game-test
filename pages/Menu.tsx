@@ -5,6 +5,7 @@ import {ButtonStart} from "../app/components/button/ButtonStart";
 import MainLayout from "../app/components/MainLayout";
 import {useState} from "react";
 import {ISlideValue} from "../app/components/menuComponent/ValueMenu/ValueMenu";
+import {IGameSettings, saveSettings} from "../app/utils/settingsService";
 
 const Menu = () => {
     const [valueSettings] = useState({})
@@ -40,14 +41,14 @@ const Menu = () => {
     }
 
     const clickPlayHandle = () => {
-        const settingsValue: any = {
+        const settingsValue: IGameSettings = {
             count: subjectCount,
             value: range,
             isAscending: isActiveAsc,
             numberTheme: Math.floor(Math.random() * 4)
         }
 
-        localStorage.setItem('settingValue', JSON.stringify(settingsValue))
+        saveSettings(settingsValue)
     }
 
     return (
