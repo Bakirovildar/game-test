@@ -3,8 +3,8 @@ import {Biscuit1} from "../../icons/randomIcons/biscuit1/Biscuit1";
 import React, {useEffect, useState} from "react";
 import {Descending} from "../../asending/Descending";
 import {Asendings} from "../../asending/Asending";
-import {Biscuit2} from "../../icons/randomIcons/biscuit1/Biscuit2";
 import {IBoard} from "../flowers/BoardFlowers";
+import {RandomIcon} from "../../icons/randomIcons/RandomIcon";
 
 export const BoardBiscuit = ({settingsValue, countIcon, dropHandler, allRightNumbers}: IBoard) => {
     const [icons, setIcons]: any = useState([])
@@ -44,7 +44,7 @@ export const BoardBiscuit = ({settingsValue, countIcon, dropHandler, allRightNum
                         icons.map((icon: any) => {
                             if (allRightNumbers.includes(icon)) {
                                 return <div key={icon} style={{position: "relative"}}><span
-                                    className='number'>{icon}</span><Biscuit2/></div>
+                                    className='number'>{icon}</span><RandomIcon randomNum={icon % 4} theme={settingsValue.numberTheme}/></div>
                             } else {
                                 return (
                                     <div

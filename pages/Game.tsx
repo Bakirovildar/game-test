@@ -1,7 +1,7 @@
 import {StyledGamePages} from "../styles/styledGamePage"
 import {BgFlowers} from "../app/components/stylesGame/flowers/BgFlowers";
 import {BoardBiscuit} from "../app/components/stylesGame/biscuit/BoardBiscuit";
-import {DragIcon} from "../app/components/stylesGame/general/DragIcon";
+import {DragIcons} from "../app/components/stylesGame/general/DragIcons";
 import MainLayout from "../app/components/MainLayout";
 import {useEffect, useState} from "react";
 import {BgNewYear} from "../app/components/stylesGame/new year/BgNewYear";
@@ -14,14 +14,13 @@ import {getRandomIcons} from "../app/utils/getRandomIcons";
 import {ModalEndGame} from "../app/components/ModalEndGame";
 import {getSettings, IGameSettings} from "../app/utils/settingsService";
 
-
 const Game = () => {
     const [settingsValue, setSettingsValue]: any = useState<IGameSettings | Object>({})
 
     const [randomIcons, setRandomIcons] = useState([])
-    const [sortNumbers, setSortNumbers]: any = useState([])
+    const [sortedNumbers, setSortedNumbers]: any = useState([])
 
-    const [startNumber, setStartNumber] = useState(0)
+    const [dragIcon, setDragIcon] = useState(0)
 
     const [rightNumber, setRightNumber] = useState(0)
     const [allRightNumbers, setAllRightNumbers]: any = useState([])
@@ -49,7 +48,7 @@ const Game = () => {
             }
         ]
 
-        setSortNumbers(rightNumbers)
+        setSortedNumbers(rightNumbers)
     }, [settingsValue])
 
     useEffect(() => {
@@ -66,11 +65,11 @@ const Game = () => {
     }, [randomIcons])
 
     const dragStartHandler = (event: any, iconNumber: number) => {
-        setStartNumber(iconNumber)
+        setDragIcon(iconNumber)
     }
 
     const dropHandler = (event: any, endNumber: any) => {
-        if (endNumber === startNumber) {
+        if (endNumber === dragIcon) {
             setRightNumber(endNumber)
 
             setAllRightNumbers([...allRightNumbers, endNumber])
@@ -84,29 +83,29 @@ const Game = () => {
                 {
                     settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler}
                                                                                    allRightNumbers={allRightNumbers}
-                                                                                   countIcon={sortNumbers}
+                                                                                   countIcon={sortedNumbers}
                                                                                    settingsValue={settingsValue}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear dropHandler={dropHandler}
                                                                                    allRightNumbers={allRightNumbers}
-                                                                                   countIcon={sortNumbers}
+                                                                                   countIcon={sortedNumbers}
                                                                                    settingsValue={settingsValue}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney dropHandler={dropHandler}
                                                                                allRightNumbers={allRightNumbers}
-                                                                               countIcon={sortNumbers}
+                                                                               countIcon={sortedNumbers}
                                                                                settingsValue={settingsValue}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit dropHandler={dropHandler}
                                                                                    allRightNumbers={allRightNumbers}
-                                                                                   countIcon={sortNumbers}
+                                                                                   countIcon={sortedNumbers}
                                                                                    settingsValue={settingsValue}/></> : ''
                 }
 
-                <DragIcon
+                <DragIcons
                     dragStartHandler={dragStartHandler}
                     numbers={randomIcons}
                     theme={settingsValue.numberTheme}

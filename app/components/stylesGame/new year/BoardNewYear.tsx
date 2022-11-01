@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 import {NewYearIcon1} from "../../icons/randomIcons/newYearIcons/NewYearIcon1";
 import {Descending} from "../../asending/Descending";
 import {Asendings} from "../../asending/Asending";
-import {NewYearIcon2} from "../../icons/randomIcons/newYearIcons/NewYearIcon2";
+import {RandomIcon} from "../../icons/randomIcons/RandomIcon";
 
 export const BoardNewYear = ({settingsValue, countIcon, dropHandler, allRightNumbers}: IBoard) => {
     const [icons, setIcons]: any = useState([])
@@ -45,7 +45,7 @@ export const BoardNewYear = ({settingsValue, countIcon, dropHandler, allRightNum
                         icons.map((icon: any) => {
                             if (allRightNumbers.includes(icon)) {
                                 return <div key={icon} style={{position: "relative"}}><span
-                                    className='number'>{icon}</span><NewYearIcon2/></div>
+                                    className='number'>{icon}</span><RandomIcon randomNum={icon % 4} theme={settingsValue.numberTheme}/></div>
                             } else {
                                 return (
                                     <div

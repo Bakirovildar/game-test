@@ -1,16 +1,9 @@
-import {useEffect, useState} from "react";
 import {FlowersIcon1} from "./FlowersIcon1";
 import {FlowersIcon2} from "./FlowersIcon2";
 import {FlowersIcon3} from "./FlowersIcon3";
 import {FlowersIcon4} from "./FlowersIcon4";
 
-export const FlowersRandom = () => {
-    const [randomNum, setRandomNum] = useState(0)
-
-    useEffect(() => {
-        setRandomNum(Math.floor(Math.random() * 4))
-    }, [])
-
+export const FlowersRandom = ({randomNum}: {randomNum: number}) => {
     return (
         <div>
             {
