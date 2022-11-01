@@ -2,7 +2,7 @@ import {StyledValueMenu} from "./styledValueMenu";
 import {useEffect, useState} from "react";
 
 interface IValueMenu {
-    value: any
+    value: Array<string>
     valueSliderHandle: ({}: ISlideValue) => void
 }
 
@@ -29,8 +29,8 @@ export function ValueMenu({value,valueSliderHandle}: IValueMenu) {
             <div className='numbers'>
                 {
                     value.length < 6
-                        ? value.map(({value}: any) => <div className='styleNum1' id={value} key={value}>{value}</div>)
-                        : value.map(({value}: any) => <div className='styleNum' id={value} key={value}>{value}</div>)
+                        ? value.map((value: string) => <div className='styleNum1' id={value} key={value}>{value}</div>)
+                        : value.map((value: string) => <div className='styleNum' id={value} key={value}>{value}</div>)
                 }
             </div>
 

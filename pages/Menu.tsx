@@ -7,36 +7,24 @@ import {useState} from "react";
 import {ISlideValue} from "../app/components/menuComponent/ValueMenu/ValueMenu";
 
 const Menu = () => {
-    const [valueSettings, setValueSettings] = useState({})
+    const [valueSettings] = useState({})
 
     const [isActiveDesc, setIsActiveDesc] = useState(false)
     const [isActiveAsc, setIsActiveAsc] = useState(true)
 
-    const [subjectCount]: any = useState([
-        {value: '1'},
-        {value: '2'},
-        {value: '3'},
-        {value: '4'},
-        {value: '5'},
-    ])
+    const [subjectCountArray]: any = useState(['1', '2', '3', '4', '5'])
 
-    const [range] = useState([
-        {value: 'A'},
-        {value: '9'},
-        {value: '19'},
-        {value: '50'},
-        {value: '99'},
-        {value: '999'}
-    ])
-    const [countIcon, setCountIcon] = useState(1)
-    const [valueIcon, setValueIcon] = useState(1)
+    const [rangeArray] = useState(['A', '9', '19', '50', '99', '999'])
+
+    const [subjectCount, setSubjectCount] = useState(1)
+    const [range, setRange] = useState(1)
 
     const valueSliderHandle = ({name, value}: ISlideValue) => {
         if (name === 'count') {
-            setCountIcon(value)
+            setSubjectCount(value)
         }
         if (name === 'value') {
-            setValueIcon(value)
+            setRange(value)
         }
     }
 
@@ -53,8 +41,8 @@ const Menu = () => {
 
     const clickPlayHandle = () => {
         const settingsValue: any = {
-            count: countIcon,
-            value: valueIcon,
+            count: subjectCount,
+            value: range,
             isAscending: isActiveAsc,
             numberTheme: Math.floor(Math.random() * 4)
         }
@@ -66,8 +54,8 @@ const Menu = () => {
         <MainLayout valueSettings={valueSettings}>
             <StyledMenuComponent>
                 <div className='module'>
-                    <MenuComponent title='Кол-во предметов' valueSliderHandle={valueSliderHandle} value={subjectCount}/>
-                    <MenuComponent title='Значения' valueSliderHandle={valueSliderHandle} value={range}/>
+                    <MenuComponent title='Кол-во предметов' valueSliderHandle={valueSliderHandle} value={subjectCountArray}/>
+                    <MenuComponent title='Значения' valueSliderHandle={valueSliderHandle} value={rangeArray}/>
 
                     <div className='buttons'>
                         <Button isActive={isActiveAsc} handleClickButton={handleClickDesc} title='По возрастанию'/>
