@@ -2,17 +2,21 @@
   "name": "test-game",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bakirovildar.github.io/game-test/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "eject": "react-scripts eject",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@emotion/css": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "gh-pages": "^4.0.0",
     "next": "13.0.0",
     "next-images": "^1.8.4",
     "react": "18.2.0",
