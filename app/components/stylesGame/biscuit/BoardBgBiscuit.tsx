@@ -1,6 +1,6 @@
 import { StyledBg } from "../../../../styles/styledGamePage";
 
-export const BgBiscuit = () => {
+export const BoardBgBiscuit = () => {
     return (
         <StyledBg isTop>
             <svg xmlns="http://www.w3.org/2000/svg" width="422" height="536" viewBox="0 0 422 536" fill="none">

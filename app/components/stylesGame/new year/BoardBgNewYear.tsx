@@ -1,6 +1,6 @@
 import {StyledBg, StyledNewYear} from "../../../../styles/styledGamePage"
 
-export const BgNewYear = () => {
+export const BoardBgNewYear = () => {
     return (
         <>
             <StyledNewYear>

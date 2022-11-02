@@ -37,7 +37,7 @@ export const StyledBgFlowersContainer = styled.div`
 `
 
 
-export const StyledBoardBiscuit = styled.div`
+export const StyledBoard = styled.div`
   position: relative;
   bottom: 330px;
   width: 100%;

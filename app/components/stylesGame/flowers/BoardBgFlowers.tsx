@@ -1,6 +1,6 @@
 import {StyledBgFlowersContainer, StyledFlowers} from "../../../../styles/styledGamePage"
 
-export const BgFlowers = () => {
+export const BoardBgFlowers = () => {
     return (
         <StyledBgFlowersContainer>
             <div>

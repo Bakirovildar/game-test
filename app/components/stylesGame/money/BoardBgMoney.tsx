@@ -1,6 +1,6 @@
 import { StyledBg } from "../../../../styles/styledGamePage";
 
-export const BgMoney = () => {
+export const BoardBgMoney = () => {
     return (
         <StyledBg isTop>
             <svg xmlns="http://www.w3.org/2000/svg" width="225" height="542" viewBox="0 0 225 542" fill="none">
