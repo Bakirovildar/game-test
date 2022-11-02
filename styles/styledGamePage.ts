@@ -120,7 +120,7 @@ export const StyledBoard = styled.div`
   }
 `
 
-export const StyledDragIcon = styled.div`
+export const StyledDragIcons = styled.div`
   position: absolute;
   bottom: 60%;
   width: 100%;

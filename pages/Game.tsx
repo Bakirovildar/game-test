@@ -1,12 +1,11 @@
 import {StyledGamePages} from "../styles/styledGamePage"
-import {DragIcons} from "../app/components/stylesGame/general/DragIcons";
+import {DraggableIcons} from "../app/components/stylesGame/general/DraggableIcons";
 import MainLayout from "../app/components/MainLayout";
 import {useEffect, useState} from "react";
 import {getRandomIcons} from "../app/utils/getRandomIcons";
 import {ModalEndGame} from "../app/components/ModalEndGame";
 import {getSettings, IGameSettings} from "../app/utils/settingsService";
 import {Board} from "../app/components/stylesGame/board/Board";
-import {BoardBg} from "../app/components/stylesGame/board/BoardBg";
 
 const Game = () => {
     const [settingsValue, setSettingsValue]: any = useState<IGameSettings | Object>({})
@@ -65,12 +64,11 @@ const Game = () => {
         <MainLayout>
             <StyledGamePages bgColor={'#DEC6AA'}>
 
-                <BoardBg theme={settingsValue.numberTheme}/>
                 <Board dropHandler={dropHandler}
                        allRightNumbers={allRightNumbers}
                        sortedIcons={sortedNumbers}
                        settingsValue={settingsValue}/>
-                <DragIcons
+                <DraggableIcons
                     dragStartHandler={dragStartHandler}
                     numbers={randomIcons}
                     theme={settingsValue.numberTheme}
