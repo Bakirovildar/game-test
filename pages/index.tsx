@@ -8,6 +8,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #0f1565;
 `
 
 export default function Home() {
