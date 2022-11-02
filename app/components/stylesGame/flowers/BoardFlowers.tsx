@@ -4,6 +4,7 @@ import {FlowersIcon1} from "../../icons/randomIcons/flowersIcon/FlowersIcon1";
 import {Descending} from "../../asending/Descending";
 import {Asendings} from "../../asending/Asending";
 import {RandomIcon} from "../../icons/randomIcons/RandomIcon";
+import {getNumberForIcon} from "../general/DragIcons";
 
 export interface IBoard {
     settingsValue: any
@@ -52,7 +53,7 @@ export const BoardFlowers = ({settingsValue, countIcon, dropHandler, allRightNum
                                 return <div key={icon} style={{position: "relative"}}>
                                     <span className='number'>{icon}</span>
                                     <RandomIcon
-                                        randomNum={icon % 4}
+                                        randomNum={getNumberForIcon(icon)}
                                         theme={settingsValue.numberTheme}/>
                                 </div>
                             } else {

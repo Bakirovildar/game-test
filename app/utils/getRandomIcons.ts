@@ -1,57 +1,50 @@
 export const getRandomIcons = (countIcon: number, value: number) => {
-    let num: any = []
-    const alphabet = ['Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю']
-
-    for (let i = 0; i < countIcon; i++) {
-        if (value === 1) {
-            const random = Math.floor(Math.random() * alphabet.length)
-            num.push(alphabet[random])
-            num.splice(random, 1)
-        }
-
-        if (value === 2) {
-            num = randomNumbers(10, countIcon)
-        }
-
-        if (value === 3) {
-            num = randomNumbers(20, countIcon)
-        }
-
-        if (value === 4) {
-            num = randomNumbers(51, countIcon)
-        }
-
-        if (value === 5) {
-            num = randomNumbers(100, countIcon)
-        }
-
-        if (value === 6) {
-            num = randomNumbers(1000, countIcon)
-        }
-    }
-    return num
+    return value === 1 ? getRandomAlphabetIcons(countIcon) : getRandomNumberIcons(value, countIcon);
 }
 
-const randomNumbers = (maxNum: number, value: number)  => {
-    const outArray = []; // массив, в котором будем хранить уникальные числа
-    let i = 0; // индекс для массива
-    const countNum = value; // количество нужных чисел
-    const max = maxNum; // максимальное число
+const getRandomAlphabetIcons = (countIcon: number) => {
+    let icons: any = []
+    const alphabet = ['Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю']
+
+    while (icons.length < countIcon) {
+        const random = Math.floor(Math.random() * alphabet.length)
+        icons.push(alphabet[random])
+        alphabet.splice(random, 1)
+    }
+
+    return icons
+}
+
+const getRandomNumberIcons = (value: number, countNum: number) => {
+    const outArray:Array<number> = []; // массив, в котором будем хранить уникальные числа
+    const max = getMaxRange(value); // максимальное число
     const min = 1; // минимальное  число
     // цикл, пока не получим массив с уникальными числами
-    while(i<countNum){
-        let number: any = Math.floor((Math.random()*max)+min); // генерим случайное число
-        if(find(outArray, number) ===0){ // Проверяем уникальность числа.
-            outArray[i] = number; // если уникальное, то заисываем его в массив
-            i++;
+    while (outArray.length < countNum) {
+        let randomNumber: number = Math.floor((Math.random() * max) + min); // генерим случайное число
+        if (!outArray.includes(randomNumber)) { // Проверяем уникальность числа.
+            outArray.push(randomNumber)
         }
     }
 
-    function find(array: Array<any>, value: number) {
-        for(let i=0; i<array.length; i++) {
-            if (array[i] == value) return 1;
-        }
-        return 0;
-    }
     return outArray
+}
+
+const getMaxRange = (value: number): number => {
+    if (value === 2) {
+        return 10
+    }
+    if (value == 3) {
+        return 20
+    }
+    if (value == 4) {
+        return 51
+    }
+    if (value == 5) {
+        return 100
+    }
+    if (value == 6) {
+        return 1000
+    }
+    return 0
 }

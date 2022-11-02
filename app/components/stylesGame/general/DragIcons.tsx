@@ -32,6 +32,8 @@ function getIcon(index: number,
     </div>;
 }
 
+export const getNumberForIcon = (icon: any) => icon % 4 || icon.toString().charCodeAt(0) % 4
+
 export const DragIcons = ({numbers, theme, dragStartHandler}: IDragIcons) => {
 
     const dropHandler = (event: any) => {
@@ -47,7 +49,7 @@ export const DragIcons = ({numbers, theme, dragStartHandler}: IDragIcons) => {
             <div className='dragIconContent'>
                 {
                     numbers.map((icon: any, index: number) => (
-                        getIcon(index, dropHandler, dragStartHandler, icon, dragOverHandler, theme, icon % 4)
+                        getIcon(index, dropHandler, dragStartHandler, icon, dragOverHandler, theme, getNumberForIcon(icon))
                     ))
                 }
             </div>
