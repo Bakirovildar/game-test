@@ -35,20 +35,10 @@ const Game = () => {
         const randomIcons = getRandomIcons(settingsValue.count, settingsValue.value)
         setRandomIcons(randomIcons)
 
-        const rightNumbers = [
-            {
-                'asc': settingsValue.value === 1
-                    ? [...randomIcons].sort((a: any, b: any) => b - a).sort()
-                    : [...randomIcons].sort((a: any, b: any) => b - a)
-            },
-            {
-                'desc': settingsValue.value === 1
-                    ? [...randomIcons].sort((a: any, b: any) => a - b).sort()
-                    : [...randomIcons].sort((a: any, b: any) => a - b)
-            }
-        ]
-
-        setSortedNumbers(rightNumbers)
+        const sorted = settingsValue.value === 1
+            ? [...randomIcons].sort()
+            : [...randomIcons].sort((a: any, b: any) => a - b)
+        setSortedNumbers(sorted)
     }, [settingsValue])
 
     useEffect(() => {
@@ -83,25 +73,25 @@ const Game = () => {
                 {
                     settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler}
                                                                                    allRightNumbers={allRightNumbers}
-                                                                                   countIcon={sortedNumbers}
+                                                                                   sortedIcons={sortedNumbers}
                                                                                    settingsValue={settingsValue}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear dropHandler={dropHandler}
                                                                                    allRightNumbers={allRightNumbers}
-                                                                                   countIcon={sortedNumbers}
+                                                                                   sortedIcons={sortedNumbers}
                                                                                    settingsValue={settingsValue}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney dropHandler={dropHandler}
                                                                                allRightNumbers={allRightNumbers}
-                                                                               countIcon={sortedNumbers}
+                                                                               sortedIcons={sortedNumbers}
                                                                                settingsValue={settingsValue}/></> : ''
                 }
                 {
                     settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit dropHandler={dropHandler}
                                                                                    allRightNumbers={allRightNumbers}
-                                                                                   countIcon={sortedNumbers}
+                                                                                   sortedIcons={sortedNumbers}
                                                                                    settingsValue={settingsValue}/></> : ''
                 }
 

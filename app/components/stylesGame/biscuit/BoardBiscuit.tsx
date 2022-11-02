@@ -7,20 +7,12 @@ import {IBoard} from "../flowers/BoardFlowers";
 import {RandomIcon} from "../../icons/randomIcons/RandomIcon";
 import {getNumberForIcon} from "../general/DragIcons";
 
-export const BoardBiscuit = ({settingsValue, countIcon, dropHandler, allRightNumbers}: IBoard) => {
+export const BoardBiscuit = ({settingsValue, sortedIcons, dropHandler, allRightNumbers}: IBoard) => {
     const [icons, setIcons]: any = useState([])
 
     useEffect(() => {
-
-        if (!settingsValue.isAscending) {
-            setIcons(countIcon[0].asc)
-        }
-
-        if (settingsValue.isAscending) {
-            setIcons(countIcon[1].desc)
-        }
-
-    }, [countIcon, settingsValue])
+        setIcons(sortedIcons)
+    }, [sortedIcons])
 
     const dragOverHandler = (event: any) => {
         event.preventDefault()

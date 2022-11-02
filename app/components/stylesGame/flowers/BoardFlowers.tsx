@@ -5,28 +5,21 @@ import {Descending} from "../../asending/Descending";
 import {Asendings} from "../../asending/Asending";
 import {RandomIcon} from "../../icons/randomIcons/RandomIcon";
 import {getNumberForIcon} from "../general/DragIcons";
+import {getMaximum, getMinimum} from "../../../utils/numberUtils";
 
 export interface IBoard {
     settingsValue: any
-    countIcon: Array<any>
+    sortedIcons: Array<any>
     dropHandler: (event: any, icon: number) => void
     allRightNumbers: Array<number>
 }
 
-export const BoardFlowers = ({settingsValue, countIcon, dropHandler, allRightNumbers}: IBoard) => {
+export const BoardFlowers = ({settingsValue, sortedIcons, dropHandler, allRightNumbers}: IBoard) => {
     const [icons, setIcons]: any = useState([])
 
     useEffect(() => {
-
-        if (!settingsValue.isAscending) {
-            setIcons(countIcon[0].asc)
-        }
-
-        if (settingsValue.isAscending) {
-            setIcons(countIcon[1].desc)
-        }
-
-    }, [countIcon, settingsValue])
+        setIcons(sortedIcons)
+    }, [sortedIcons])
 
     const dragOverHandler = (event: any) => {
         event.preventDefault()
@@ -44,7 +37,7 @@ export const BoardFlowers = ({settingsValue, countIcon, dropHandler, allRightNum
                     {
                         settingsValue.isAscending &&
                         <div style={{position: "relative"}}><span
-                            className='number'>{settingsValue.value === 1 ? 'A' : 0}</span><FlowersIcon1/></div>
+                            className='number'>{settingsValue.value === 1 ? 'A' : getMinimum(icons) - 1}</span><FlowersIcon1/></div>
                     }
 
                     {
@@ -72,7 +65,7 @@ export const BoardFlowers = ({settingsValue, countIcon, dropHandler, allRightNum
                     {
                         !settingsValue.isAscending &&
                         <div style={{position: "relative"}}><span
-                            className='number'>{settingsValue.value === 1 ? 'Я' : 0}</span><FlowersIcon1/></div>
+                            className='number'>{settingsValue.value === 1 ? 'Я' : getMaximum(icons) + 1}</span><FlowersIcon1/></div>
                     }
 
                 </div>
