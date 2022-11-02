@@ -1,18 +1,12 @@
 import {StyledGamePages} from "../styles/styledGamePage"
-import {BgFlowers} from "../app/components/stylesGame/flowers/BgFlowers";
-import {BoardBiscuit} from "../app/components/stylesGame/biscuit/BoardBiscuit";
 import {DragIcons} from "../app/components/stylesGame/general/DragIcons";
 import MainLayout from "../app/components/MainLayout";
 import {useEffect, useState} from "react";
-import {BgNewYear} from "../app/components/stylesGame/new year/BgNewYear";
-import {BgMoney} from "../app/components/stylesGame/money/BgMoney";
-import {BgBiscuit} from "../app/components/stylesGame/biscuit/BgBiscuit";
-import {BoardFlowers} from "../app/components/stylesGame/flowers/BoardFlowers";
-import {BoardNewYear} from "../app/components/stylesGame/new year/BoardNewYear";
-import {BoardMoney} from "../app/components/stylesGame/money/BoardMoney";
 import {getRandomIcons} from "../app/utils/getRandomIcons";
 import {ModalEndGame} from "../app/components/ModalEndGame";
 import {getSettings, IGameSettings} from "../app/utils/settingsService";
+import {Board} from "../app/components/stylesGame/board/Board";
+import {BoardBg} from "../app/components/stylesGame/board/BoardBg";
 
 const Game = () => {
     const [settingsValue, setSettingsValue]: any = useState<IGameSettings | Object>({})
@@ -70,36 +64,18 @@ const Game = () => {
     return (
         <MainLayout>
             <StyledGamePages bgColor={'#DEC6AA'}>
-                {
-                    settingsValue.numberTheme === 0 ? <><BgFlowers/> <BoardFlowers dropHandler={dropHandler}
-                                                                                   allRightNumbers={allRightNumbers}
-                                                                                   sortedIcons={sortedNumbers}
-                                                                                   settingsValue={settingsValue}/></> : ''
-                }
-                {
-                    settingsValue.numberTheme === 1 ? <><BgNewYear/> <BoardNewYear dropHandler={dropHandler}
-                                                                                   allRightNumbers={allRightNumbers}
-                                                                                   sortedIcons={sortedNumbers}
-                                                                                   settingsValue={settingsValue}/></> : ''
-                }
-                {
-                    settingsValue.numberTheme === 2 ? <><BgMoney/> <BoardMoney dropHandler={dropHandler}
-                                                                               allRightNumbers={allRightNumbers}
-                                                                               sortedIcons={sortedNumbers}
-                                                                               settingsValue={settingsValue}/></> : ''
-                }
-                {
-                    settingsValue.numberTheme === 3 ? <><BgBiscuit/> <BoardBiscuit dropHandler={dropHandler}
-                                                                                   allRightNumbers={allRightNumbers}
-                                                                                   sortedIcons={sortedNumbers}
-                                                                                   settingsValue={settingsValue}/></> : ''
-                }
 
+                <BoardBg theme={settingsValue.numberTheme}/>
+                <Board dropHandler={dropHandler}
+                       allRightNumbers={allRightNumbers}
+                       sortedIcons={sortedNumbers}
+                       settingsValue={settingsValue}/>
                 <DragIcons
                     dragStartHandler={dragStartHandler}
                     numbers={randomIcons}
                     theme={settingsValue.numberTheme}
                 />
+
                 {
                     isEndGame && <ModalEndGame/>
                 }
